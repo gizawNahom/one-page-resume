@@ -50,18 +50,40 @@ function headerHandler(header) {
 function registerModalHandlerOnClick() {
 	const menuButton = document.querySelector("#menu-button")
 	const modal = document.querySelector(".modal")
+	const modalList = modal.querySelector("ul")
 	const main = document.querySelector("main")
 
 	const handler = modalHandler(menuButton, modal, main)
 
-	menuButton.addEventListener("click", handler)
-	modal.addEventListener("click", (e) => {
-		if (navWasClicked()) handler()
+	registerHandlerOnMenuButton()
+	registerHandlerOnModal()
+	registerHandlerOnModalList()
 
-		function navWasClicked() {
-			return e.target.nodeName.toLowerCase() == "nav"
-		}
-	})
+	function registerHandlerOnMenuButton() {
+		menuButton.addEventListener("click", handler)
+	}
+
+	function registerHandlerOnModal() {
+		modal.addEventListener("click", (e) => {
+			if (navWasClicked())
+				handler()
+
+			function navWasClicked() {
+				return e.target.nodeName.toLowerCase() == "nav"
+			}
+		})
+	}
+
+	function registerHandlerOnModalList() {
+		modalList.addEventListener("click", (e) => {
+			if (anchorWasClicked())
+				handler()
+
+			function anchorWasClicked() {
+				return e.target.nodeName.toLowerCase() == "a"
+			}
+		})
+	}
 }
 
 function modalHandler(menuButton, modal, main) {
@@ -71,6 +93,7 @@ function modalHandler(menuButton, modal, main) {
 	const line2 = menuButton.querySelector(".line:nth-of-type(2)")
 	const line3 = menuButton.querySelector(".line:nth-of-type(3)")
 
+	const STOP_SCROLLING_CLASS = "stop-scrolling"
 	const REVEALED_MODAL_CLASS = "reveled-modal"
 	const HIDDEN_MODAL_CLASS = "hidden-modal"
 	const BLURRED_CLASS = "blurred"
@@ -88,9 +111,14 @@ function modalHandler(menuButton, modal, main) {
 
 	function openModal() {
 		opened = true
+		stopBodyScrolling()
 		revealModal()
 		blurMain()
 		forwardAnimateButton()
+
+		function stopBodyScrolling() {
+			document.body.classList.add(STOP_SCROLLING_CLASS)
+		}
 
 		function revealModal() {
 			modal.classList.remove(HIDDEN_MODAL_CLASS)
@@ -116,9 +144,14 @@ function modalHandler(menuButton, modal, main) {
 
 	function closeModal() {
 		opened = false
+		startBodyScrolling()
 		hideModal()
 		unblurMain()
 		reverseAnimateButton()
+
+		function startBodyScrolling() {
+			document.body.classList.remove(STOP_SCROLLING_CLASS)
+		}
 
 		function hideModal() {
 			modal.classList.remove(REVEALED_MODAL_CLASS)
