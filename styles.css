@@ -1,4 +1,5 @@
 :root {
+	--number-of-companies: 4;
 	/* *COLORS */
 	--c-primary-shade: hsl(218, 23%, 16%);
 	--c-primary: #202733;
@@ -15,14 +16,16 @@
 	--fc-normal-text-color: #f8feff;
 	--fc-light-text-color: #8d97a1;
 	/* *FONT SIZE */
-	--fs-extra-large-font: 30px;
-	--fs-large-font: 18px;
-	--fs-medium-font: 16px;
-	--fs-small-font: 14px;
+	--fs-xxl: 30px;
+	--fs-xl: 22px;
+	--fs-l: 18px;
+	--fs-m: 16px;
+	--fs-s: 14px;
 	/* *SPACING */
 	--s-side-space: 50px;
 	--s-header-height: 100px;
-	--s-nav-height-percent: 35%;
+	--s-nav-height: 35px;
+	--s-content-top: 56px;
 	/* *BORDER RADIUS */
 	--br-profile-picture: 3px;
 	/* *ANIMATION */
@@ -39,7 +42,23 @@
 
 html {
 	font-family: sans-serif;
-	font-size: var(--fs-large-font);
+	font-size: var(--fs-l);
+	scrollbar-color: var(--c-secondary) var(--c-primary);
+	scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+	width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: var(--c-secondary);
+	border: 3px solid var(--c-primary);
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+	background: var(--c-primary);
 }
 
 body {
@@ -68,6 +87,11 @@ main section {
 	margin-bottom: 85px;
 }
 
+section .content {
+	padding-top: var(--s-content-top);
+	color: var(--fc-light-text-color);
+}
+
 .divider {
 	height: 2px;
 	width: 100%;
@@ -76,6 +100,21 @@ main section {
 	margin-top: 4px;
 }
 
+.content-link {
+	color: var(--c-accent);
+	text-decoration: none;
+	display: inline-block;
+}
+
+.content-link:hover::after {
+	content: "";
+	background-color: var(--c-accent);
+	height: 1px;
+	width: 100%;
+	display: block;
+	margin-top: -4px;
+	animation: link-bottom-animation 0.25s ease-in-out forwards;
+}
 /* *HEADER SECTION */
 
 header {
@@ -97,19 +136,19 @@ header {
 
 header nav {
 	width: 100%;
-	height: var(--s-nav-height-percent);
+	height: var(--s-nav-height);
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	font-family: var(--ff-mono-space);
-	font-size: var(--fs-small-font);
+	font-size: var(--fs-s);
 	color: var(--fc-light-text-color);
 }
 
 header nav #logo {
 	width: 20%;
 	height: 100%;
-	font-size: var(--fs-extra-large-font);
+	font-size: var(--fs-xxl);
 }
 
 header nav #logo span {
@@ -142,7 +181,7 @@ header nav ul li:nth-of-type(4) {
 
 .link {
 	font-family: var(--ff-mono-space);
-	font-size: var(--fs-small-font);
+	font-size: var(--fs-s);
 	color: inherit;
 	text-decoration: none;
 }
@@ -242,7 +281,7 @@ section#hero p {
 	margin: 20px 0 0;
 	max-width: 550px;
 	animation-delay: calc(var(--a-fade-up-delay) + 0.4s);
-	font-size: var(--fs-extra-large-font);
+	font-size: var(--fs-xxl);
 
 	color: var(--fc-light-text-color);
 }
@@ -290,12 +329,9 @@ section#hero button:hover {
 /* *HERO SECTION END */
 
 /* *ABOUT SECTION */
-
 section#about .content {
 	display: flex;
-	padding-top: 56px;
-	color: var(--fc-light-text-color);
-	gap: 56px;
+	gap: var(--s-content-top);
 }
 
 section#about .content div {
@@ -347,22 +383,6 @@ section#about .content #profile-picture figure img:hover {
 	filter: none;
 }
 
-section#about .content a {
-	color: var(--c-accent);
-	text-decoration: none;
-	display: inline-block;
-}
-
-section#about .content a:hover::after {
-	content: "";
-	background-color: var(--c-accent);
-	height: 1px;
-	width: 100%;
-	display: block;
-	margin-top: -1px;
-	animation: link-bottom-animation 0.25s ease-in-out forwards;
-}
-
 @keyframes link-bottom-animation {
 	0% {
 		width: 0%;
@@ -399,6 +419,151 @@ section#about .content ul li::before {
 }
 
 /* *ABOUT SECTION END */
+
+/* *EXPERIENCE SECTION */
+section#experience {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 700px;
+	opacity: 0;
+	transform: matrix(1, 0, 0, 1, 0, 50);
+	transition: opacity 500ms cubic-bezier(0.645, 0.045, 0.355, 1) 200ms,
+		transform 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+section#experience .content {
+	display: flex;
+	gap: 25px;
+}
+
+section#experience .content .tabs {
+	max-width: 20%;
+	min-width: 20%;
+	width: 20%;
+	display: flex;
+	--tab-height: 42px;
+	height: calc(var(--tab-height) * var(--number-of-companies));
+}
+
+section#experience .content .tabs .tab-pole {
+	width: 3px;
+	height: 100%;
+	background-color: var(--c-secondary);
+	display: inline-block;
+	position: relative;
+}
+
+section#experience .content .tabs .tab-pole .tab-pole-selector {
+	width: 100%;
+	height: calc(100% / var(--number-of-companies));
+	background-color: var(--c-accent);
+	position: absolute;
+	top: 0;
+	transition: var(--transition);
+}
+
+.first-tab {
+	top: 0 !important;
+}
+.second-tab {
+	top: calc(1 * (100% / var(--number-of-companies))) !important;
+}
+.third-tab {
+	top: calc(2 * (100% / var(--number-of-companies))) !important;
+}
+.fourth-tab {
+	top: calc(3 * (100% / var(--number-of-companies))) !important;
+}
+
+section#experience .content .tabs [role="tablist"] {
+	padding: 0;
+	margin: 0;
+	width: 100%;
+}
+
+section#experience .content .tabs [role="tablist"] button {
+	width: 100%;
+	height: calc(100% / var(--number-of-companies));
+	min-height: calc(100% / var(--number-of-companies));
+	max-height: calc(100% / var(--number-of-companies));
+	text-align: center;
+	background-color: transparent;
+	border: none;
+	color: unset;
+	font-size: var(--fs-m);
+	font-family: var(--ff-mono-space);
+	padding: 0 20px 0 20px;
+	cursor: pointer;
+	transition: var(--transition);
+}
+
+section#experience .content .tabs [role="tablist"] button:hover {
+	background-color: var(--c-light-accent);
+	color: var(--c-accent);
+}
+
+section#experience
+	.content
+	.tabs
+	[role="tablist"]
+	button[aria-selected="true"] {
+	background-color: var(--c-light-accent);
+	color: var(--c-accent);
+}
+
+.fade-enter {
+	animation: fade-enter 0.3s;
+}
+
+@keyframes fade-enter {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+section#experience .content .company-detail h3 {
+	font-size: var(--fs-xl);
+	margin-bottom: 5px;
+}
+
+section#experience .content .company-detail .at {
+	color: var(--c-accent);
+}
+
+section#experience .content .company-detail .role {
+	color: var(--fc-normal-text-color);
+}
+
+section#experience .content .company-detail p {
+	margin-top: 0;
+	margin-bottom: 25px;
+	font-size: var(--fs-m);
+	font-family: var(--ff-mono-space);
+}
+
+section#experience .content .company-detail ul {
+	list-style: none;
+	padding: 0;
+}
+
+section#experience .content .company-detail li {
+	position: relative;
+	padding-left: 20px;
+	margin-bottom: 10px;
+}
+
+section#experience .content .company-detail li::before {
+	content: "▹";
+	position: absolute;
+	left: 0px;
+	color: var(--c-accent);
+}
+
+/* *EXPERIENCE SECTION END*/
 
 @media screen and (prefers-reduced-motion: no-preference) {
 	* {
@@ -460,7 +625,7 @@ section#about .content ul li::before {
 	}
 
 	.link {
-		font-size: clamp(var(--fs-small-font), 4vw, var(--fs-large-font));
+		font-size: clamp(var(--fs-s), 4vw, var(--fs-l));
 	}
 
 	#menu-button {
@@ -638,4 +803,64 @@ section#about .content ul li::before {
 	}
 
 	/* *ABOUT SECTION END */
+}
+
+@media (max-width: 720px) {
+	/* *EXPERIENCE */
+	section#experience .content {
+		flex-wrap: wrap;
+	}
+
+	section#experience .content .tabs {
+		display: flex;
+		flex-direction: column-reverse;
+		min-width: 90vw;
+		max-width: 90vw;
+		height: auto;
+		position: relative;
+		overflow-x: scroll;
+		--tab-width: 120px;
+	}
+
+	section#experience .content .tabs .tab-pole {
+		width: calc(var(--tab-width) * var(--number-of-companies));
+		height: 3px;
+	}
+
+	section#experience .content .tabs .tab-pole .tab-pole-selector {
+		height: 100%;
+		width: var(--tab-width);
+		left: 0;
+	}
+
+	section#experience .content .tabs [role="tablist"] {
+		display: flex;
+		flex-direction: row;
+	}
+
+	section#experience .content .tabs [role="tablist"] [role="tab"] {
+		min-width: var(--tab-width);
+		max-width: var(--tab-width);
+		min-height: var(--tab-height);
+		max-height: var(--tab-height);
+	}
+
+	.first-tab {
+		top: 0 !important;
+		left: 0 !important;
+	}
+	.second-tab {
+		top: 0 !important;
+		left: calc(1 * (100% / var(--number-of-companies))) !important;
+	}
+	.third-tab {
+		top: 0 !important;
+		left: calc(2 * (100% / var(--number-of-companies))) !important;
+	}
+	.fourth-tab {
+		top: 0 !important;
+		left: calc(3 * (100% / var(--number-of-companies))) !important;
+	}
+
+	/* *EXPERIENCE END*/
 }
