@@ -271,9 +271,15 @@ function tabsHandler({ tabs, tabPanels, poleSelector }) {
 }
 
 function registerSectionHandlerOnIntersection() {
+	const aboutSection = document.querySelector("section#about")
 	const experienceSection = document.querySelector("section#experience")
+	const contactSection = document.querySelector(".contact")
+	
 	const iO = createIntersectionObserver()
+
+	observeSection(iO, aboutSection)
 	observeSection(iO, experienceSection)
+	observeSection(iO, contactSection)
 
 	function createIntersectionObserver() {
 		return new IntersectionObserver(sectionHandler, {

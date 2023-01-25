@@ -16,8 +16,10 @@
 	--fc-normal-text-color: #f8feff;
 	--fc-light-text-color: #8d97a1;
 	/* *FONT SIZE */
-	--fs-xxl: 30px;
-	--fs-xl: 22px;
+	--fs-4xl: 60px;
+	--fs-xxxl: 30px;
+	--fs-xxl: 22px;
+	--fs-xl: 20px;
 	--fs-l: 18px;
 	--fs-m: 16px;
 	--fs-s: 14px;
@@ -77,9 +79,10 @@ h3 {
 }
 
 main {
-	width: 80%;
-	max-width: 1000px;
-	margin: auto;
+	width: 100%;
+	max-width: 1600px;
+	margin: 0 auto;
+	padding: 0 150px;
 	transition: var(--transition);
 }
 
@@ -115,6 +118,33 @@ section .content {
 	margin-top: -4px;
 	animation: link-bottom-animation 0.25s ease-in-out forwards;
 }
+
+.action-link {
+	display: inline-block;
+	color: var(--c-accent);
+	padding: 1rem 1rem;
+	background-color: transparent;
+	border: 2px solid var(--c-accent);
+	border-radius: 5px;
+	font-family: var(--ff-mono-space);
+}
+
+.action-link:hover {
+	background-color: var(--c-light-accent);
+}
+
+.green-text {
+	color: var(--c-accent);
+	font-size: 1rem;
+	font-family: var(--ff-mono-space);
+}
+
+.animated-in-section {
+	opacity: 0;
+	transform: matrix(1, 0, 0, 1, 0, 50);
+	transition: opacity 500ms cubic-bezier(0.645, 0.045, 0.355, 1) 200ms,
+		transform 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
 /* *HEADER SECTION */
 
 header {
@@ -148,7 +178,7 @@ header nav {
 header nav #logo {
 	width: 20%;
 	height: 100%;
-	font-size: var(--fs-xxl);
+	font-size: var(--fs-xxxl);
 }
 
 header nav #logo span {
@@ -254,9 +284,6 @@ section#hero #hero-image img {
 }
 
 section#hero h1 {
-	color: var(--c-accent);
-	font-size: 1rem;
-	font-family: var(--ff-mono-space);
 	margin: 0 0 0 6px;
 }
 
@@ -281,26 +308,15 @@ section#hero p {
 	margin: 20px 0 0;
 	max-width: 550px;
 	animation-delay: calc(var(--a-fade-up-delay) + 0.4s);
-	font-size: var(--fs-xxl);
+	font-size: var(--fs-xxxl);
 
 	color: var(--fc-light-text-color);
 }
 
 section#hero button {
 	margin-top: 50px;
-	display: inline-block;
-	color: var(--c-accent);
-	padding: 1rem 1rem;
-	background-color: transparent;
-	border: 2px solid var(--c-accent);
-	border-radius: 5px;
 	width: clamp(150px, 15vw, 200px);
-	font-family: var(--ff-mono-space);
 	animation-delay: calc(var(--a-fade-up-delay) + 0.5s);
-}
-
-section#hero button:hover {
-	background-color: var(--c-light-accent);
 }
 
 @keyframes fade-up {
@@ -426,10 +442,6 @@ section#experience {
 	margin-left: auto;
 	margin-right: auto;
 	max-width: 700px;
-	opacity: 0;
-	transform: matrix(1, 0, 0, 1, 0, 50);
-	transition: opacity 500ms cubic-bezier(0.645, 0.045, 0.355, 1) 200ms,
-		transform 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
 section#experience .content {
@@ -526,7 +538,7 @@ section#experience
 }
 
 section#experience .content .company-detail h3 {
-	font-size: var(--fs-xl);
+	font-size: var(--fs-xxl);
 	margin-bottom: 5px;
 }
 
@@ -565,15 +577,53 @@ section#experience .content .company-detail li::before {
 
 /* *EXPERIENCE SECTION END*/
 
+/* * CONTACT SECTION  */
+.contact {
+	text-align: center;
+	width: 100%;
+	max-width: 700px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.contact__green-text {
+	margin-bottom: 20px;
+}
+
+.contact__title {
+	font-size: clamp(40px, 5vw, var(--fs-4xl));
+}
+
+.contact__text {
+	color: var(--fc-light-text-color);
+	font-size: var(--fs-xl);
+	text-align: center;
+}
+
+.contact__action-link {
+	margin-top: 50px;
+	width: 135px;
+}
+
 @media screen and (prefers-reduced-motion: no-preference) {
 	* {
 		scroll-behavior: smooth;
 	}
 }
 
+@media (max-width: 1080px) {
+	main {
+		padding: 0 100px;
+	}
+}
+
 @media (max-width: 770px) {
 	:root {
 		--s-side-space: 25px;
+	}
+
+	main {
+		padding: 0 50px;
 	}
 
 	.stop-scrolling {
@@ -803,6 +853,12 @@ section#experience .content .company-detail li::before {
 	}
 
 	/* *ABOUT SECTION END */
+
+	/* *CONTACT SECTION */
+	.contact__text {
+		font-size: var(--fs-l);
+	}
+	/* *CONTACT SECTION END */
 }
 
 @media (max-width: 720px) {
@@ -863,4 +919,10 @@ section#experience .content .company-detail li::before {
 	}
 
 	/* *EXPERIENCE END*/
+}
+
+@media (max-width: 480px) {
+	main {
+		padding: 0 25px;
+	}
 }
