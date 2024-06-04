@@ -3,6 +3,13 @@ registerModalHandlerOnClick()
 registerTabsHandlerOnClick()
 registerSectionHandlerOnIntersection()
 
+function readMore() {
+	const button = document.querySelector('#about .content button');
+	const text = document.querySelector('#about .content .more');
+	button.style.display = "none"
+	text.style.display = "block"
+}
+
 function registerHeaderHandlerOnScroll() {
 	const header = document.querySelector("header")
 	const handler = headerHandler(header)
@@ -236,6 +243,7 @@ function tabsHandler({ tabs, tabPanels, poleSelector }) {
 			else if(order == 1) moveTo("second-tab")
 			else if(order == 2) moveTo("third-tab")
 			else if(order == 3) moveTo("fourth-tab")
+			else if(order == 4) moveTo("fifth-tab")
 
 			function moveTo(tabName) {
 				poleSelector.element.setAttribute(

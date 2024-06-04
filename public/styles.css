@@ -1,5 +1,5 @@
 :root {
-	--number-of-companies: 4;
+	--number-of-companies: 5;
 	/* *COLORS */
 	--c-primary-shade: hsl(218, 23%, 16%);
 	--c-primary: #202733;
@@ -355,6 +355,10 @@ section#about .content div {
 	line-height: 26px;
 }
 
+section#about .content .more {
+	display: none;
+}
+
 section#about .content div p:nth-of-type(1) {
 	margin-top: 0px;
 }
@@ -487,6 +491,9 @@ section#experience .content .tabs .tab-pole .tab-pole-selector {
 .fourth-tab {
 	top: calc(3 * (100% / var(--number-of-companies))) !important;
 }
+.fifth-tab {
+	top: calc(4 * (100% / var(--number-of-companies))) !important;
+}
 
 section#experience .content .tabs [role="tablist"] {
 	padding: 0;
@@ -603,6 +610,8 @@ section#experience .content .company-detail li::before {
 .contact__action-link {
 	margin-top: 50px;
 	width: 135px;
+	text-decoration: none;
+	font-size: var(--fs-s);
 }
 
 @media screen and (prefers-reduced-motion: no-preference) {
@@ -916,6 +925,10 @@ section#experience .content .company-detail li::before {
 	.fourth-tab {
 		top: 0 !important;
 		left: calc(3 * (100% / var(--number-of-companies))) !important;
+	}
+	.fifth-tab {
+		top: 0 !important;
+		left: calc(4 * (100% / var(--number-of-companies))) !important;
 	}
 
 	/* *EXPERIENCE END*/
