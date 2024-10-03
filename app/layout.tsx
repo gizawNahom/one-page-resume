@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import './styles.css'
+import "./styles.css";
 import { ModalProvider } from "@/lib/contexts/modalContext";
-import Script from "next/script";
-
+import { SplashScreen } from "@/components/splashScreen";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Nahom Gizaw",
-  description: "Nahom is a software Engineer who writes maintainable code for the web.",
+  description:
+    "Nahom is a software Engineer who writes maintainable code for the web.",
 };
 
 export default function RootLayout({
@@ -24,11 +24,10 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <body className={inter.className}>
-      <ModalProvider>
-        {children}
-      </ModalProvider>
+        <ModalProvider>
+          <SplashScreen>{children}</SplashScreen>
+        </ModalProvider>
       </body>
-      <Script src="./script.js"/>
     </html>
   );
 }
