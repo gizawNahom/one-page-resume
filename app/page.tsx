@@ -81,16 +81,24 @@ export default function Home() {
 
   function renderHeroSection() {
     return (
-      <section id="hero">
+      <section id="hero" className="hero">
         <div>
-          <h1 className="fade-up green-text">Hi</h1>
-          <h3 className="big-heading fade-up">I&#39;m Nahom</h3>
-          <p className="fade-up">Freelance Software Engineer</p>
-          <button className="fade-up action-link">Resume</button>
+          <h1 className="fade-up green-text hero__green-text">
+            Hi, my name is
+          </h1>
         </div>
-        <div id="hero-image" className="fade-left fade-out">
-          <img src="./imgs/coding.svg" alt="coding image" />
-        </div>
+        <h3 className="big-heading fade-up">Nahom Gizaw.</h3>
+        <h3 className="big-heading fade-up hero__secondary-text">
+          I build for the web.
+        </h3>
+        <p className="hero__text fade-up">
+          I am a software engineer who cares about building empirically-scoped,
+          high-quality software on time and within budget. I am currently
+          freelancing on Upwork.
+        </p>
+        <button className="fade-up action-link hero__action-link">
+          Resume
+        </button>
       </section>
     );
   }

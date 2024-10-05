@@ -35,7 +35,6 @@
   /* *ANIMATION */
   --a-fade-down-delay: 0s;
   --a-fade-up-delay: 1.5s;
-  --a-fade-out-delay: 1.5s;
   /* *Transition */
   --transition: all 0.25s ease-in-out;
 }
@@ -254,71 +253,13 @@ header nav ul li:nth-of-type(4) {
 /* *HEADER END */
 
 /* *HERO SECTION */
-
-section#hero {
-  min-height: 100vh;
-  padding: 0;
-  display: flex;
-  justify-content: space-between;
-}
-section#hero div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  width: 100%;
-}
-
-section#hero #hero-image {
-  align-items: center;
-}
-section#hero #hero-image img {
-  width: 70%;
-  aspect-ratio: 1;
-}
-
-.fade-out {
-  animation: fade-out 0.5s ease-in-out var(--a-fade-out-delay) backwards;
-}
-
 .fade-up {
   animation: fade-up 0.3s ease-out var(--a-fade-up-delay) backwards;
-}
-
-section#hero h1 {
-  margin: 0 0 0 6px;
-}
-
-section#hero h2 {
-  color: var(--fc-light-text-color);
-  margin: 0px;
-  animation-delay: calc(var(--a-fade-up-delay) + 0.2s);
-}
-
-section#hero h3 {
-  line-height: 0.9;
-  margin-top: 10px;
-  animation-delay: calc(var(--a-fade-up-delay) + 0.3s);
 }
 
 .big-heading {
   margin: 0px;
   font-size: clamp(40px, 8vw, 80px);
-}
-
-section#hero p {
-  margin: 20px 0 0;
-  max-width: 550px;
-  animation-delay: calc(var(--a-fade-up-delay) + 0.4s);
-  font-size: var(--fs-xxxl);
-
-  color: var(--fc-light-text-color);
-}
-
-section#hero button {
-  margin-top: 50px;
-  width: clamp(150px, 15vw, 200px);
-  animation-delay: calc(var(--a-fade-up-delay) + 0.5s);
 }
 
 @keyframes fade-up {
@@ -333,16 +274,36 @@ section#hero button {
   }
 }
 
-@keyframes fade-out {
-  0% {
-    opacity: 0;
-    transform: scale(0.3);
-  }
+.hero {
+  min-height: 100vh;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
+.hero__green-text {
+  margin-bottom: 20px;
+}
+
+.hero__secondary-text {
+  animation-delay: calc(var(--a-fade-up-delay) + 0.4s);
+  color: var(--fc-light-text-color);
+  margin-top: 6px;
+}
+
+.hero__text {
+  max-width: 540px;
+  font-size: var(--fs-m);
+  color: var(--fc-light-text-color);
+  margin-top: 29px;
+  animation-delay: calc(var(--a-fade-up-delay) + 0.5s);
+}
+
+.hero__action-link {
+  margin-top: 40px;
+  width: clamp(150px, 15vw, 200px);
+  animation-delay: calc(var(--a-fade-up-delay) + 0.6s);
 }
 /* *HERO SECTION END */
 
