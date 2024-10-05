@@ -305,6 +305,28 @@ header nav ul li:nth-of-type(4) {
   width: clamp(150px, 15vw, 200px);
   animation-delay: calc(var(--a-fade-up-delay) + 0.6s);
 }
+
+@media (max-width: 770px) {
+  .hero__green-text {
+    animation-delay: 0.2s;
+  }
+
+  .hero__primary-text {
+    animation-delay: 0.3s;
+  }
+
+  .hero__secondary-text {
+    animation-delay: 0.4s;
+  }
+
+  .hero__text {
+    animation-delay: 0.5s;
+  }
+
+  .hero__action-link {
+    animation-delay: 0.6s;
+  }
+}
 /* *HERO SECTION END */
 
 /* *ABOUT SECTION */

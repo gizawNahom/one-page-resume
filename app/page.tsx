@@ -87,7 +87,7 @@ export default function Home() {
             Hi, my name is
           </h1>
         </div>
-        <h3 className="big-heading fade-up">Nahom Gizaw.</h3>
+        <h3 className="big-heading fade-up hero__primary-text">Nahom Gizaw.</h3>
         <h3 className="big-heading fade-up hero__secondary-text">
           I build for the web.
         </h3>
