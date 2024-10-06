@@ -178,25 +178,22 @@ export default function Home() {
               </a>
               .
             </p>
-            <p>
-              I learned a lot about the practices, teams and processes that make
-              great software, especially from Uncle Bob. He spoke about
-              the&nbsp;
-              <a
-                href="https://blog.cleancoder.com/uncle-bob/2015/11/18/TheProgrammersOath.html"
-                className="content-link"
-              >
-                programmer’s oath
-              </a>
-              , and I took it to heart. He is why I call myself a software
-              craftsman: a professional striving for maximum quality,
-              accountability and integrity.
-            </p>
-            {/* <button onclick="readMore()" className="action-link"> */}
-            {/* <button className="action-link">Read more</button> */}
             <ReadMoreButton className="action-link">Read more</ReadMoreButton>
-            {/* <button className="action-link">Read more</button> */}
             <div className="more">
+              <p>
+                I learned a lot about the practices, teams and processes that
+                make great software, especially from Uncle Bob. He spoke about
+                the&nbsp;
+                <a
+                  href="https://blog.cleancoder.com/uncle-bob/2015/11/18/TheProgrammersOath.html"
+                  className="content-link"
+                >
+                  programmer’s oath
+                </a>
+                , and I took it to heart. He is why I call myself a software
+                craftsman: a professional striving for maximum quality,
+                accountability and integrity.
+              </p>
               <p>
                 I started my career as an intern at a software company
                 called&nbsp;
