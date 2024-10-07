@@ -906,14 +906,6 @@ footer {
 
   /* *MODAL END */
 
-  /* *HERO SECTION */
-
-  section#hero #hero-image {
-    display: none;
-  }
-
-  /* *HERO SECTION END */
-
   /* *ABOUT SECTION */
 
   section#about .content {
