@@ -31,9 +31,9 @@ export default function Home() {
 
   function renderHeaderContent() {
     return (
-      <nav>
+      <nav className="header__nav">
         {renderLogo()}
-        <ul>{renderNavItems()}</ul>
+        <ul className="header__menu-items">{renderNavItems()}</ul>
         <Modal>{renderNavItems()}</Modal>
       </nav>
     );
@@ -41,9 +41,9 @@ export default function Home() {
 
   function renderLogo() {
     return (
-      <div id="logo" className="fade-down">
+      <div id="logo" className="logo fade-down">
         {`{`}
-        <span>N</span>
+        <span className="logo__text">N</span>
         {`}`}
       </div>
     );
@@ -52,17 +52,17 @@ export default function Home() {
   function renderNavItems() {
     return (
       <>
-        <li className="fade-down">
+        <li className="fade-down header__menu-item">
           <a className="link" href="#about">
             About
           </a>
         </li>
-        <li className="fade-down">
+        <li className="fade-down header__menu-item">
           <a className="link" href="#experience">
             Experience
           </a>
         </li>
-        <li className="fade-down">
+        <li className="fade-down header__menu-item">
           <a className="link" href="#contact">
             Contact
           </a>

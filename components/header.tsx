@@ -5,5 +5,10 @@ import { ReactElement } from "react";
 
 export function Header({ children }: { children: ReactElement }) {
   const header = useHeaderHandler();
-  return <header ref={header}>{children}</header>;
+
+  return (
+    <header ref={header} className="header">
+      {children}
+    </header>
+  );
 }
