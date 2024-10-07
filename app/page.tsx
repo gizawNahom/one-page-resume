@@ -3,27 +3,30 @@ import { Header } from "@/components/header";
 import { Main } from "@/components/main";
 import { Modal } from "@/components/modal";
 import Image from "next/image";
+import { SplashScreen } from "@/components/splashScreen";
 
 export default function Home() {
   return (
-    <>
-      <Header>{renderHeaderContent()}</Header>
-      <Main>{renderMainContent()}</Main>
-      <footer id="credits">
-        <div className="credits">
-          <a
-            href="https://github.com/gizawNahom/one-page-resume"
-            rel="noopener noreferrer"
-            target="_blank"
-            className="link credits__link"
-          >
-            <p className="credits__text">
-              Inspired by Brittany Chiang & Built by Nahom Gizaw
-            </p>
-          </a>
-        </div>
-      </footer>
-    </>
+    <SplashScreen>
+      <>
+        <Header>{renderHeaderContent()}</Header>
+        <Main>{renderMainContent()}</Main>
+        <footer id="credits">
+          <div className="credits">
+            <a
+              href="https://github.com/gizawNahom/one-page-resume"
+              rel="noopener noreferrer"
+              target="_blank"
+              className="link credits__link"
+            >
+              <p className="credits__text">
+                Inspired by Brittany Chiang & Built by Nahom Gizaw
+              </p>
+            </a>
+          </div>
+        </footer>
+      </>
+    </SplashScreen>
   );
 
   function renderHeaderContent() {
