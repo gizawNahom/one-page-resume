@@ -445,6 +445,8 @@ section .content {
 
   .project__content {
     width: clamp(370px, 65%, 495px);
+    position: relative;
+    z-index: 2;
   }
 
   .project__description {
@@ -455,8 +457,14 @@ section .content {
   .project__image-container {
     width: clamp(330px, 46vw, 570px);
     height: clamp(220px, 30.6vw, 380px);
-    /* top: 10%; */
     top: 13%;
+    filter: grayscale(100%) contrast(1) sepia() saturate(2) hue-rotate(138deg);
+    z-index: 1;
+    transition: filter 0.5s;
+  }
+
+  .project__image-container:hover {
+    filter: none;
   }
 
   .project__image {
