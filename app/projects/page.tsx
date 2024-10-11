@@ -15,7 +15,7 @@ export default async function Page() {
   const projects = await readProjects("./content/projects");
 
   return (
-    <main style={styles.main}>
+    <main style={styles.main as React.CSSProperties}>
       <h1>Projects</h1>
 
       {projects.map((project, i) => {
@@ -25,7 +25,7 @@ export default async function Page() {
   );
 }
 
-export function Project({
+function Project({
   project: { name, description, tools, cover, githubLink, externalLink },
 }: {
   project: Proj;
