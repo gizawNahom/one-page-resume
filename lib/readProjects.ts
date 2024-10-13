@@ -1,8 +1,7 @@
 import fs from "fs/promises";
 import path from "path";
 import matter from "front-matter";
-import { marked } from "marked";
-
+import { marked, Tokens } from "marked";
 export interface Project {
   name: string;
   description: string;
@@ -24,6 +23,17 @@ export async function readProjects(directory: string): Promise<Project[]> {
 
   async function parseProjects(): Promise<Project[]> {
     const projects: Project[] = [];
+
+    const renderer = {
+      link({ href, text }: Tokens.Link) {
+        return `                
+          <a class="content-link" href="${href}">
+            ${text}
+          </a>
+        `;
+      },
+    };
+    marked.use({ renderer });
 
     for (const file of markdownFiles) {
       const filePath = path.join(directory, file);
