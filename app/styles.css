@@ -2,6 +2,7 @@
   --number-of-companies: 5;
   /* *COLORS */
   --c-primary-shade: hsl(218, 23%, 16%);
+  --c-primary-shade-translucent: hsla(218, 23%, 16%, 0.8);
   --c-primary: #202733;
   --c-primary1: 32, 39, 51;
   --c-secondary: #303f53;
@@ -227,6 +228,8 @@ section .content {
 .floating-header {
   box-shadow: 0 10px 30px -10px var(--c-shadow-color);
   height: 70px;
+  background-color: var(--c-primary-shade-translucent);
+  backdrop-filter: blur(13px);
 }
 
 .on-small-screen {
