@@ -1,10 +1,10 @@
 "use client";
 
-import { useModalHandler1 } from "@/lib/hooks";
+import { useModalHandler } from "@/lib/hooks";
 import { ReactElement } from "react";
 
 export function Modal({ children }: { children: ReactElement }) {
-  const { menuButtonRef, modalRef, handleClick } = useModalHandler1();
+  const { menuButtonRef, modalRef, handleClick } = useModalHandler();
 
   return (
     <div className="menu on-small-screen">

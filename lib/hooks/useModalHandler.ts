@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { useModal } from "../contexts/modalContext";
 
-export function useModalHandler1() {
+export function useModalHandler() {
   const menuButtonRef = useRef<HTMLDivElement>(null);
   const modalRef = useRef<HTMLElement>(null);
   const {
