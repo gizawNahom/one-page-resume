@@ -4,7 +4,7 @@
   --c-primary-shade: hsl(218, 23%, 16%);
   --c-primary-shade-translucent: hsla(218, 23%, 16%, 0.8);
   --c-primary: #202733;
-  --c-primary1: 32, 39, 51;
+  --c-primary-rgb: 32, 39, 51;
   --c-secondary: #303f53;
   --c-accent: rgb(81, 189, 185);
 
@@ -341,7 +341,7 @@ section .content {
 .project {
   padding: 25px 25px 20px 25px;
   width: 100%;
-  background-color: rgba(var(--c-primary1), 0.9);
+  background-color: rgba(var(--c-primary-rgb), 0.9);
   position: relative;
   border-radius: 5px;
   overflow: hidden;
