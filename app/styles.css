@@ -369,6 +369,7 @@ section .content {
   color: var(--fc-light-text-color);
   font-size: var(--fs-l);
   margin: 0;
+  line-height: 26px;
 }
 
 .project__description p {
