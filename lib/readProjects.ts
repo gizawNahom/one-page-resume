@@ -11,6 +11,17 @@ export interface Project {
   cover: string;
 }
 
+type ProjectDTO = {
+  attributes: {
+    name: string;
+    tools: string[];
+    cover: string;
+    github: string;
+    external: string;
+  };
+  body: string;
+};
+
 export async function readProjects(directory: string): Promise<Project[]> {
   const markdownFiles = await readProjectFiles();
   return await parseProjects();
@@ -23,41 +34,55 @@ export async function readProjects(directory: string): Promise<Project[]> {
 
   async function parseProjects(): Promise<Project[]> {
     const projects: Project[] = [];
-
-    const renderer = {
-      link({ href, text }: Tokens.Link) {
-        return `                
-          <a class="content-link" href="${href}">
-            ${text}
-          </a>
-        `;
-      },
-    };
-    marked.use({ renderer });
-
+    const converter = createHTMLConverter();
     for (const file of markdownFiles) {
+      const parsed = parseProject(await readFile(file));
+      const descHTML = await getDescriptionHTML(converter, parsed.body);
+      addToParsedProjects(buildProject(parsed, descHTML));
+    }
+    return projects;
+
+    async function readFile(file: string) {
       const filePath = path.join(directory, file);
       const fileContent = await fs.readFile(filePath, "utf-8");
-      const parsed = matter(fileContent) as {
-        attributes: {
-          name: string;
-          tools: string[];
-          cover: string;
-          github: string;
-          external: string;
-        };
-        body: string;
-      };
-      projects.push({
+      return fileContent;
+    }
+
+    function parseProject(fileContent: string): ProjectDTO {
+      return matter(fileContent);
+    }
+
+    async function getDescriptionHTML(converter: typeof marked, body: string) {
+      return await converter(body);
+    }
+
+    function buildProject(parsed: ProjectDTO, description: string) {
+      return {
         name: parsed.attributes.name,
-        description: await marked(parsed.body),
+        description: description,
         tools: parsed.attributes.tools,
         cover: parsed.attributes.cover,
         githubLink: parsed.attributes.github,
         externalLink: parsed.attributes.external,
-      });
+      };
     }
 
-    return projects;
+    function addToParsedProjects(project: Project) {
+      projects.push(project);
+    }
   }
+}
+
+function createHTMLConverter() {
+  const renderer = {
+    link({ href, text }: Tokens.Link) {
+      return `                
+      <a class="content-link" href="${href}">
+        ${text}
+      </a>
+    `;
+    },
+  };
+  marked.use({ renderer });
+  return marked;
 }
