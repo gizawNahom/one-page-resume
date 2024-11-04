@@ -383,6 +383,12 @@ section .content {
 
 .project__title {
   font-size: clamp(24px, 5vw, 28px);
+  color: var(--fc-normal-text-color);
+  transition: all 0.3s;
+}
+
+.project__title:hover {
+  color: var(--c-accent);
 }
 
 .project__description {
