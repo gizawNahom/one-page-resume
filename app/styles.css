@@ -365,6 +365,7 @@ section .content {
   flex-direction: column;
   gap: 30px;
   justify-content: center;
+  pointer-events: none;
 }
 
 .project__content-right {
@@ -375,6 +376,7 @@ section .content {
   display: flex;
   gap: 10px;
   flex-direction: column;
+  pointer-events: initial;
 }
 
 .project__green-text {
@@ -401,6 +403,7 @@ section .content {
   font-size: var(--fs-l);
   margin: 0;
   line-height: 26px;
+  pointer-events: initial;
 }
 
 .project__description-right {
@@ -417,6 +420,7 @@ section .content {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  pointer-events: initial;
 }
 
 .project__tools {
