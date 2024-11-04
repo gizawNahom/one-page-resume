@@ -4,18 +4,24 @@ import { ReactNode } from "react";
 
 export function Project({
   project: { name, description, tools, cover, githubLink, externalLink },
+  isReverse,
 }: {
   project: Proj;
+  isReverse: boolean;
 }) {
   return (
-    <article className="project">
-      <div className="project__content">
+    <article className={`project ${isReverse && "project-right"}`}>
+      <div
+        className={`project__content ${isReverse && "project__content-right"}`}
+      >
         <header className="project__header">
           <h1 className="green-text project__green-text">Featured Project</h1>
           <h2 className="project__title">{name}</h2>
         </header>
         <div
-          className="project__description"
+          className={`project__description ${
+            isReverse && "project__description-right"
+          }`}
           dangerouslySetInnerHTML={{ __html: description }}
         ></div>
         <footer className="project__footer">
@@ -24,13 +30,19 @@ export function Project({
               return <li key={i}>{tool}</li>;
             })}
           </ul>
-          <div className="project__links">
+          <div
+            className={`project__links ${isReverse && "project__links-right"}`}
+          >
             {githubLink && renderGithubLink(githubLink)}
             {externalLink && renderExternalLink(externalLink)}
           </div>
         </footer>
       </div>
-      <div className="project__image-container">
+      <div
+        className={`project__image-container ${
+          isReverse && "project__image-container-left"
+        }`}
+      >
         <Image
           src={cover}
           alt="project image"

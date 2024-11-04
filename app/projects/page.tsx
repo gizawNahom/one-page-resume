@@ -18,7 +18,7 @@ export default async function Page() {
       <h1>Projects</h1>
 
       {projects.map((project, i) => {
-        return <Project key={i} project={project} />;
+        return <Project key={i} project={project} isReverse={false} />;
       })}
     </main>
   );

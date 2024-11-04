@@ -437,7 +437,7 @@ export default async function Home() {
         <div className="divider"></div>
         <div className="content projects__content">
           {projects.map((project, i) => {
-            return <Project key={i} project={project} />;
+            return <Project key={i} project={project} isReverse={i % 2 == 0} />;
           })}
         </div>
       </section>
