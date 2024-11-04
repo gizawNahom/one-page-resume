@@ -9,7 +9,7 @@ import { Project } from "@/components/project";
 import { Project as Pj } from "@/lib/readProjects";
 
 export default async function Home() {
-  // const projects = await readProjects("./content/projects");
+  // const projects = await readProjects();
   const projects: Pj[] = [];
 
   return (

@@ -22,17 +22,18 @@ type ProjectDTO = {
   body: string;
 };
 
-export async function readProjects(directory: string): Promise<Project[]> {
-  const markdownFiles = await readProjectFiles();
-  return await parseProjects();
+export async function readProjects(): Promise<Project[]> {
+  const directory = "./content/projects";
+  const markdownFiles = await readProjectFiles(directory);
+  return await parseProjects(directory);
 
-  async function readProjectFiles() {
+  async function readProjectFiles(directory: string) {
     const files = await fs.readdir(directory);
     const markdownFiles = files.filter((file) => file.endsWith(".md"));
     return markdownFiles;
   }
 
-  async function parseProjects(): Promise<Project[]> {
+  async function parseProjects(directory: string): Promise<Project[]> {
     const projects: Project[] = [];
     const converter = createHTMLConverter();
     for (const file of markdownFiles) {

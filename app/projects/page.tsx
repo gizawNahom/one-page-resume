@@ -11,7 +11,7 @@ export default async function Page() {
       padding: "20px 20px",
     },
   };
-  const projects = await readProjects("./content/projects");
+  const projects = await readProjects();
 
   return (
     <main style={styles.main as React.CSSProperties}>
