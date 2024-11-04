@@ -2,109 +2,109 @@ registerTabsHandlerOnClick();
 registerSectionHandlerOnIntersection();
 
 function registerTabsHandlerOnClick() {
-	const tabs = Array.from(document.querySelectorAll("#experience [role=tab]"))
-	const tabPanels = Array.from(
-		document.querySelectorAll("#experience [role=tabpanel]")
-	)
-	const poleSelector = createPoleSelector()
+  const tabs = Array.from(document.querySelectorAll("#experience [role=tab]"));
+  const tabPanels = Array.from(
+    document.querySelectorAll("#experience [role=tabpanel]")
+  );
+  const poleSelector = createPoleSelector();
 
-	const handler = tabsHandler({ tabs, tabPanels, poleSelector })
+  const handler = tabsHandler({ tabs, tabPanels, poleSelector });
 
-	tabs.forEach((t) => t.addEventListener("click", handler))
+  tabs.forEach((t) => t.addEventListener("click", handler));
 
-	function createPoleSelector() {
-		const className = "tab-pole-selector"
-		const element = document.querySelector(
-			`section#experience .${className}`
-		)
-		return {
-			className,
-			element
-		}
-	}
+  function createPoleSelector() {
+    const className = "tab-pole-selector";
+    const element = document.querySelector(`section#experience .${className}`);
+    return {
+      className,
+      element,
+    };
+  }
 }
 
 function tabsHandler({ tabs, tabPanels, poleSelector }) {
-	return (event) => {
-		deselectAllTabs()
-		hideAllTabPanels()
-		selectClickedTab(event)
-		movePoleSelector()
-		revealAppropriateTabPanel(event)
-	}
+  return (event) => {
+    deselectAllTabs();
+    hideAllTabPanels();
+    selectClickedTab(event);
+    movePoleSelector();
+    revealAppropriateTabPanel(event);
+  };
 
-	function deselectAllTabs() {
-		tabs.forEach((t) => t.setAttribute("aria-selected", false))
-	}
+  function deselectAllTabs() {
+    tabs.forEach((t) => t.setAttribute("aria-selected", false));
+  }
 
-	function hideAllTabPanels() {
-		tabPanels.forEach((p) => {
-			p.setAttribute("aria-hidden", "true")
-			p.hidden = true
-		})
-	}
+  function hideAllTabPanels() {
+    tabPanels.forEach((p) => {
+      p.setAttribute("aria-hidden", "true");
+      p.hidden = true;
+    });
+  }
 
-	function selectClickedTab(event) {
-		clickedTab(event).setAttribute("aria-selected", true)
-	}
+  function selectClickedTab(event) {
+    clickedTab(event).setAttribute("aria-selected", true);
+  }
 
-	function movePoleSelector() {
-		const order = orderOfClickedTab()
-		moveSelectorToOrder(order)
+  function movePoleSelector() {
+    const order = orderOfClickedTab();
+    moveSelectorToOrder(order);
 
-		function orderOfClickedTab() {
-			return tabs.indexOf(clickedTab(event))
-		}
+    function orderOfClickedTab() {
+      return tabs.indexOf(clickedTab(event));
+    }
 
-		function moveSelectorToOrder(order) {
-			if(order === 0) moveTo("first-tab")
-			else if(order == 1) moveTo("second-tab")
-			else if(order == 2) moveTo("third-tab")
-			else if(order == 3) moveTo("fourth-tab")
-			else if(order == 4) moveTo("fifth-tab")
+    function moveSelectorToOrder(order) {
+      if (order === 0) moveTo("first-tab");
+      else if (order == 1) moveTo("second-tab");
+      else if (order == 2) moveTo("third-tab");
+      else if (order == 3) moveTo("fourth-tab");
+      else if (order == 4) moveTo("fifth-tab");
 
-			function moveTo(tabName) {
-				poleSelector.element.setAttribute(
-					"class",
-					`${poleSelector.className} ${tabName}`
-				)
-			}
-		}
-	}
+      function moveTo(tabName) {
+        poleSelector.element.setAttribute(
+          "class",
+          `${poleSelector.className} ${tabName}`
+        );
+      }
+    }
+  }
 
-	function revealAppropriateTabPanel(event) {
-		const id = clickedTabId()
-		const panel = findAppropriateTabPanel(id)
-		revealTabPanel(panel)
+  function revealAppropriateTabPanel(event) {
+    const id = clickedTabId();
+    const panel = findAppropriateTabPanel(id);
+    revealTabPanel(panel);
 
-		function clickedTabId() {
-			return clickedTab(event).id
-		}
+    function clickedTabId() {
+      return clickedTab(event).id;
+    }
 
-		function findAppropriateTabPanel(id) {
-			return tabPanels.find((t) => t.getAttribute("aria-labelledby") === id)
-		}
+    function findAppropriateTabPanel(id) {
+      return tabPanels.find((t) => t.getAttribute("aria-labelledby") === id);
+    }
 
-		function revealTabPanel(panel) {
-			panel.setAttribute("aria-hidden", "false")
-			panel.hidden = false
-		}
-	}
+    function revealTabPanel(panel) {
+      panel.setAttribute("aria-hidden", "false");
+      panel.hidden = false;
+    }
+  }
 
-	function clickedTab(event) {
-		return event.currentTarget
-	}
+  function clickedTab(event) {
+    return event.currentTarget;
+  }
 }
 
 function registerSectionHandlerOnIntersection() {
   const aboutSection = document.querySelector("section#about");
   const experienceSection = document.querySelector("section#experience");
+  const workSection = document.querySelector("section#work");
   const contactSection = document.querySelector(".contact");
 
   const iO = createIntersectionObserver();
 
   observeSection(iO, aboutSection);
   observeSection(iO, experienceSection);
+  observeSection(iO, workSection);
   observeSection(iO, contactSection);
 
   function createIntersectionObserver() {

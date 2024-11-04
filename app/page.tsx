@@ -432,8 +432,7 @@ export default async function Home() {
 
   function renderWorkSection() {
     return (
-      // <section id="work" className="animated-in-section">
-      <section id="work">
+      <section id="work" className="animated-in-section">
         <h1>Some Things I&#39;ve Built</h1>
         <div className="divider"></div>
         <div className="content projects__content">
