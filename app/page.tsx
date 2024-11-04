@@ -4,8 +4,14 @@ import { Main } from "@/components/main";
 import { Modal } from "@/components/modal";
 import Image from "next/image";
 import { SplashScreen } from "@/components/splashScreen";
+import { readProjects } from "@/lib/readProjects";
+import { Project } from "@/components/project";
+import { Project as Pj } from "@/lib/readProjects";
 
-export default function Home() {
+export default async function Home() {
+  // const projects = await readProjects("./content/projects");
+  const projects: Pj[] = [];
+
   return (
     <SplashScreen>
       <>
@@ -63,6 +69,11 @@ export default function Home() {
           </a>
         </li>
         <li className="fade-down header__menu-item">
+          <a className="link" href="#work">
+            Work
+          </a>
+        </li>
+        <li className="fade-down header__menu-item">
           <a className="link" href="#contact">
             Contact
           </a>
@@ -77,6 +88,7 @@ export default function Home() {
         {renderHeroSection()}
         {renderAboutSection()}
         {renderExperienceSection()}
+        {renderWorkSection()}
         {renderContactSection()}
       </>
     );
@@ -413,6 +425,21 @@ export default function Home() {
               <li>Collaborated with other team members and stakeholders</li>
             </ul>
           </div>
+        </div>
+      </section>
+    );
+  }
+
+  function renderWorkSection() {
+    return (
+      // <section id="work" className="animated-in-section">
+      <section id="work">
+        <h1>Some Things I&#39;ve Built</h1>
+        <div className="divider"></div>
+        <div className="content projects__content">
+          {projects.map((project, i) => {
+            return <Project key={i} project={project} />;
+          })}
         </div>
       </section>
     );
