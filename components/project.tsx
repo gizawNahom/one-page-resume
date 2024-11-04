@@ -9,6 +9,8 @@ export function Project({
   project: Proj;
   isReverse: boolean;
 }) {
+  const projectLink = getProjectLink({ githubLink, externalLink });
+
   return (
     <article className={`project ${isReverse && "project-right"}`}>
       <div
@@ -16,7 +18,9 @@ export function Project({
       >
         <header className="project__header">
           <h1 className="green-text project__green-text">Featured Project</h1>
-          <h2 className="project__title">{name}</h2>
+          <a className="project__title" href={projectLink}>
+            {name}
+          </a>
         </header>
         <div
           className={`project__description ${
@@ -43,16 +47,22 @@ export function Project({
           isReverse && "project__image-container-left"
         }`}
       >
-        <Image
-          src={cover}
-          alt="project image"
-          width={1667}
-          height={2048}
-          className="project__image"
-        />
+        <a href={projectLink}>
+          <Image
+            src={cover}
+            alt="project image"
+            width={1667}
+            height={2048}
+            className="project__image"
+          />
+        </a>
       </div>
     </article>
   );
+
+  function getProjectLink(project: Partial<Proj>): string {
+    return (project.externalLink || project.githubLink) as string;
+  }
 
   function renderExternalLink(externalLink: string): ReactNode {
     return (
