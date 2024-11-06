@@ -107,7 +107,15 @@ export default async function Home() {
         <p className="hero__text fade-up">
           I am a software engineer who cares about building empirically-scoped,
           high-quality software on time and within budget. I am currently
-          freelancing on Upwork.
+          freelancing on{" "}
+          <a
+            href="https://www.upwork.com/freelancers/~011abe9054337668dc"
+            className="content-link"
+            target="_blank"
+          >
+            Upwork
+          </a>
+          .
         </p>
         <button className="fade-up action-link hero__action-link">
           Resume

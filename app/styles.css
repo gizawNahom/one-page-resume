@@ -300,6 +300,7 @@ section .content {
   color: var(--fc-light-text-color);
   margin-top: 29px;
   animation-delay: calc(var(--a-fade-up-delay) + 0.5s);
+  line-height: 24px;
 }
 
 .hero__action-link {
