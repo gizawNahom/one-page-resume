@@ -541,7 +541,7 @@ section .content {
   }
 
   .project__content1 {
-    width: clamp(370px, 65%, 495px);
+    width: clamp(270px, 45%, 495px);
     position: relative;
     z-index: 2;
     flex-shrink: 0;
