@@ -531,7 +531,7 @@ section .content {
   }
 
   .project-right {
-    justify-content: flex-end;
+    flex-direction: row-reverse;
   }
 
   .project__content {
@@ -598,7 +598,7 @@ section .content {
   }
 
   .project__image-container-left {
-    left: 0;
+    margin-right: -9%;
   }
 
   .project__image-container:hover {
