@@ -125,7 +125,7 @@ export function Project1({
       >
         <header className="project__header">
           <h1 className="green-text project__green-text">Featured Project</h1>
-          <a className="project__title" href={projectLink}>
+          <a className="project__title" href={projectLink} target="_blank">
             {name}
           </a>
         </header>
@@ -154,7 +154,7 @@ export function Project1({
           isReverse && "project__image-container-left"
         }`}
       >
-        <a href={projectLink}>
+        <a href={projectLink} target="_blank">
           <Image
             src={cover}
             alt="project image"
