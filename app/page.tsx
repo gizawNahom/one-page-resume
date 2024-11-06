@@ -6,11 +6,9 @@ import Image from "next/image";
 import { SplashScreen } from "@/components/splashScreen";
 import { readProjects } from "@/lib/readProjects";
 import { Project } from "@/components/project";
-import { Project as Pj } from "@/lib/readProjects";
 
 export default async function Home() {
-  // const projects = await readProjects();
-  const projects: Pj[] = [];
+  const projects = await readProjects();
 
   return (
     <SplashScreen>
@@ -437,8 +435,6 @@ export default async function Home() {
         <div className="divider"></div>
         <div className="content projects__content">
           {projects.map((project, i) => {
-            // return <Project key={i} project={project} isReverse={i % 2 == 0} />;
-            // return <Project1 key={i} project={project} isReverse={false} />;
             return <Project key={i} project={project} isReverse={i % 2 == 0} />;
           })}
         </div>
