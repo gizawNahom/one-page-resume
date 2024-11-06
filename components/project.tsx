@@ -2,7 +2,7 @@ import { Project as Proj } from "@/lib/readProjects";
 import Image from "next/image";
 import { ReactNode } from "react";
 
-export function Project1({
+export function Project({
   project: { name, description, tools, cover, githubLink, externalLink },
   isReverse = false,
 }: {

@@ -1,4 +1,4 @@
-import { Project1 } from "@/components/project";
+import { Project } from "@/components/project";
 import { readProjects } from "@/lib/readProjects";
 
 export default async function Page() {
@@ -18,7 +18,7 @@ export default async function Page() {
       <h1>Projects</h1>
 
       {projects.map((project, i) => {
-        return <Project1 key={i} project={project} isReverse={false} />;
+        return <Project key={i} project={project} isReverse={false} />;
       })}
     </main>
   );
