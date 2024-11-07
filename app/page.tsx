@@ -7,69 +7,11 @@ import { SplashScreen } from "@/components/splashScreen";
 import { readProjects } from "@/lib/readProjects";
 import { Project } from "@/components/project";
 import { Experience } from "@/components/experience";
-import { Company } from "@/lib/readCompanies";
+import { Company, readCompanies } from "@/lib/readCompanies";
 
 export default async function Home() {
   const projects = await readProjects();
-  const companies: Company[] = [
-    {
-      companyName: "Freelance",
-      companyWebsite: "https://www.upwork.com/",
-      title: "Software Engineer",
-      duration: "Nov 2022 - Present",
-      tasks: [
-        "Learned and applied new ways of building software",
-        "Built open-source projects",
-        "Applied for jobs on Upwork",
-      ],
-    },
-    {
-      companyName: "Sabbatical",
-      title: "Learner",
-      duration: "March 2022 - Nov 2022",
-      tasks: [
-        "Started the journey of self-realization",
-        "Laid the seeds for a compelling philosophy of life",
-        "Mastered techniques for effective learning",
-      ],
-    },
-    {
-      companyName: "CNET",
-      companyWebsite: "https://cneterp.com/",
-      title: "Programmer",
-      duration: "May 2021 - March 2022",
-      tasks: [
-        "Met with clients and gathered their requirements",
-        "Designed, developed and deployed numerous projects",
-        "Developed libraries for different platforms",
-        "Refactored legacy code",
-        "Researched solutions to various problems",
-      ],
-    },
-    {
-      companyName: "Zeraf",
-      companyWebsite: "https://zeraftechnologies.com/",
-      title: "Programmer",
-      duration: "February 2021 - April 2021",
-      tasks: [
-        "Researched various technology stacks and development processes",
-        "Interviewed potential developers",
-        "Designed and developed a landing page",
-        "Developed a user story map for an MVP",
-      ],
-    },
-    {
-      companyName: "Minab",
-      companyWebsite: "https://www.minabtech.com/",
-      title: "Intern",
-      duration: "March 2019 - September 2019",
-      tasks: [
-        "Developed functional and appealing web applications",
-        "Participated in the entire application lifecycle, focusing on coding and debugging",
-        "Collaborated with other team members and stakeholders",
-      ],
-    },
-  ];
+  const companies: Company[] = await readCompanies();
 
   return (
     <SplashScreen>
