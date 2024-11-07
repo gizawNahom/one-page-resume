@@ -2,6 +2,7 @@ export function Experience() {
   const companies: Company[] = [
     {
       companyName: "Freelance",
+      companyWebsite: "https://www.upwork.com/",
       title: "Software Engineer",
       duration: "Nov 2022 - Present",
       tasks: [
@@ -22,6 +23,7 @@ export function Experience() {
     },
     {
       companyName: "CNET",
+      companyWebsite: "https://cneterp.com/",
       title: "Programmer",
       duration: "May 2021 - March 2022",
       tasks: [
@@ -34,6 +36,7 @@ export function Experience() {
     },
     {
       companyName: "Zeraf",
+      companyWebsite: "https://zeraftechnologies.com/",
       title: "Programmer",
       duration: "February 2021 - April 2021",
       tasks: [
@@ -45,6 +48,7 @@ export function Experience() {
     },
     {
       companyName: "Minab",
+      companyWebsite: "https://www.minabtech.com/",
       title: "Intern",
       duration: "March 2019 - September 2019",
       tasks: [
@@ -74,11 +78,7 @@ export function Experience() {
     </section>
   );
 
-  function renderTabPanel(
-    id: number,
-    companyDetail: Company,
-    isHidden: boolean
-  ) {
+  function renderTabPanel(id: number, company: Company, isHidden: boolean) {
     return (
       <div
         role="tabpanel"
@@ -89,13 +89,15 @@ export function Experience() {
         key={id}
       >
         <h3>
-          <span className="role">{companyDetail.title}</span>
+          <span className="role">{company.title}</span>
           <span className="at">@</span>
-          <span className="content-link">{companyDetail.companyName}</span>
+          <a className="content-link" href={company.companyWebsite}>
+            {company.companyName}
+          </a>
         </h3>
-        <p>{companyDetail.duration}</p>
+        <p>{company.duration}</p>
         <ul>
-          {companyDetail.tasks.map((t, i) => {
+          {company.tasks.map((t, i) => {
             return <li key={i}>{t}</li>;
           })}
         </ul>
@@ -125,6 +127,7 @@ export function Experience() {
 
 interface Company {
   companyName: string;
+  companyWebsite?: string;
   title: string;
   duration: string;
   tasks: string[];
