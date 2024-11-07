@@ -91,7 +91,11 @@ export function Experience() {
         <h3>
           <span className="role">{company.title}</span>
           <span className="at">@</span>
-          <a className="content-link" href={company.companyWebsite}>
+          <a
+            className="content-link"
+            href={company.companyWebsite}
+            target="_blank"
+          >
             {company.companyName}
           </a>
         </h3>
