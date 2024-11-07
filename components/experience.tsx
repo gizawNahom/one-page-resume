@@ -1,3 +1,5 @@
+import { Company } from "@/lib/readCompanies";
+
 export function Experience({ companies }: { companies: Company[] }) {
   const companyNames = companies.map((c) => c.companyName);
 
@@ -68,12 +70,4 @@ export function Experience({ companies }: { companies: Company[] }) {
       </div>
     );
   }
-}
-
-export interface Company {
-  companyName: string;
-  companyWebsite?: string;
-  title: string;
-  duration: string;
-  tasks: string[];
 }

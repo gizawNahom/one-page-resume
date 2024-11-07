@@ -6,7 +6,8 @@ import Image from "next/image";
 import { SplashScreen } from "@/components/splashScreen";
 import { readProjects } from "@/lib/readProjects";
 import { Project } from "@/components/project";
-import { Company, Experience } from "@/components/experience";
+import { Experience } from "@/components/experience";
+import { Company } from "@/lib/readCompanies";
 
 export default async function Home() {
   const projects = await readProjects();
