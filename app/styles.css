@@ -770,6 +770,7 @@ section#experience
 section#experience .content .company-detail h3 {
   font-size: var(--fs-xxl);
   margin-bottom: 5px;
+  line-height: 29px;
 }
 
 section#experience .content .company-detail .at {
