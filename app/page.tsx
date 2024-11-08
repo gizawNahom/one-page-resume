@@ -120,9 +120,13 @@ export default async function Home() {
           </a>
           .
         </p>
-        <button className="fade-up action-link hero__action-link">
-          Resume
-        </button>
+        <a
+          className="fade-up action-link hero__action-link"
+          href="https://www.upwork.com/freelancers/~011abe9054337668dc"
+          target="_blank"
+        >
+          Check out my profile!
+        </a>
       </section>
     );
   }

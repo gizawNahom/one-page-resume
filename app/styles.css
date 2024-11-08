@@ -305,8 +305,10 @@ section .content {
 
 .hero__action-link {
   margin-top: 40px;
-  width: clamp(150px, 15vw, 200px);
+  width: fit-content;
+  font-size: var(--fs-s);
   animation-delay: calc(var(--a-fade-up-delay) + 0.6s);
+  text-decoration: none;
 }
 
 @media (max-width: 770px) {
