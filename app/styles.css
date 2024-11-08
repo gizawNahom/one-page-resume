@@ -144,11 +144,29 @@ section .content {
   display: block;
   background-color: var(--c-accent);
   border-radius: 5px;
+  animation: action-link-translation-reverse 0.3s ease normal forwards;
 }
 
 .action-link:hover::before {
-  transform: translate(4%, 10%);
-  transition: transform 0.3s;
+  animation: action-link-translation 0.3s ease normal forwards;
+}
+
+@keyframes action-link-translation {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(4%, 10%);
+  }
+}
+
+@keyframes action-link-translation-reverse {
+  from {
+    transform: translate(4%, 10%);
+  }
+  to {
+    transform: translate(0, 0);
+  }
 }
 
 .green-text {
