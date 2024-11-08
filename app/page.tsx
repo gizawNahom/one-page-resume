@@ -320,7 +320,12 @@ export default async function Home() {
           Whether you’re interested in collaborating on a project, discussing a
           new idea, or simply saying hello, I’d love to connect!
         </p>
-        <a className="action-link contact__action-link">Say Hello</a>
+        <a
+          className="action-link contact__action-link"
+          href="mailto:nahomgizaw4@gmail.com"
+        >
+          Say Hello
+        </a>
       </section>
     );
   }
