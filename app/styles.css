@@ -570,20 +570,20 @@ section .content {
   }
 
   .project__image-container1 {
-    width: clamp(330px, 46vw, 570px);
-    height: clamp(220px, 30.6vw, 380px);
+    width: 65%;
+    aspect-ratio: 1.5;
     filter: grayscale(100%) contrast(1.1) sepia() saturate(2) hue-rotate(138deg);
     z-index: 1;
     transition: filter 0.5s;
     position: static;
-    margin-left: -9%;
+    margin-left: -10%;
     flex-shrink: 0;
     flex-grow: 0;
     pointer-events: initial;
   }
 
   .project__image-container-left {
-    margin-right: -9%;
+    margin-right: -10%;
   }
 
   .project__image-container:hover {
