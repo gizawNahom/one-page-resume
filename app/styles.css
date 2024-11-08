@@ -126,14 +126,29 @@ section .content {
   display: inline-block;
   color: var(--c-accent);
   padding: 1rem 1rem;
-  background-color: transparent;
+  background-color: var(--c-primary);
   border: 2px solid var(--c-accent);
   border-radius: 5px;
   font-family: var(--ff-mono-space);
+  position: relative;
 }
 
-.action-link:hover {
-  background-color: var(--c-light-accent);
+.action-link::before {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  content: "";
+  width: 100%;
+  display: block;
+  background-color: var(--c-accent);
+  border-radius: 5px;
+}
+
+.action-link:hover::before {
+  transform: translate(4%, 10%);
+  transition: transform 0.3s;
 }
 
 .green-text {
