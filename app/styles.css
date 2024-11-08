@@ -430,6 +430,7 @@ section .content {
   margin: 0;
   line-height: 26px;
   pointer-events: initial;
+  border-radius: 5px;
 }
 
 .project__description p {
