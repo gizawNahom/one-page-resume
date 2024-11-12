@@ -4,6 +4,7 @@ tools:
   - .NET Core
   - Microsoft SQL Server
   - nopCommerce
+  - C#
 
 cover: "/imgs/paymentOptionsIntegration.png"
 ---
