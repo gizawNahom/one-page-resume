@@ -133,7 +133,11 @@ export default async function Home() {
 
   function renderAboutSection() {
     return (
-      <section id="about" className="animated-in-section">
+      <section
+        id="about"
+        className="animated-in-section"
+        data-testid="aboutSection"
+      >
         <h1>My Story</h1>
         <div className="divider"></div>
         <div className="content">
