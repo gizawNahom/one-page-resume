@@ -28,7 +28,7 @@ export function SplashScreen({ children }: { children: ReactNode }) {
 
   function renderSplashContent() {
     return (
-      <div className="splash-screen">
+      <div className="splash-screen" data-testid="splashScreen">
         <h1 className="splash-screen__text">N</h1>
       </div>
     );
