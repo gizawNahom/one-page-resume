@@ -418,6 +418,7 @@ section .content {
   line-height: 1.1;
   margin: 0;
   width: fit-content;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .project__title:hover {
