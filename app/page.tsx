@@ -18,20 +18,7 @@ export default async function Home() {
       <>
         <Header>{renderHeaderContent()}</Header>
         <Main>{renderMainContent()}</Main>
-        <footer id="credits">
-          <div className="credits">
-            <a
-              href="https://github.com/gizawNahom/one-page-resume"
-              rel="noopener noreferrer"
-              target="_blank"
-              className="link credits__link"
-            >
-              <p className="credits__text">
-                Inspired by Brittany Chiang & Built by Nahom Gizaw
-              </p>
-            </a>
-          </div>
-        </footer>
+        <Footer />
       </>
     </SplashScreen>
   );
@@ -337,4 +324,23 @@ export default async function Home() {
       </section>
     );
   }
+}
+
+function Footer() {
+  return (
+    <footer id="credits">
+      <div className="credits">
+        <a
+          href="https://github.com/gizawNahom/one-page-resume"
+          rel="noopener noreferrer"
+          target="_blank"
+          className="link credits__link"
+        >
+          <p className="credits__text">
+            Inspired by Brittany Chiang & Built by Nahom Gizaw
+          </p>
+        </a>
+      </div>
+    </footer>
+  );
 }
