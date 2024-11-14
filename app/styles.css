@@ -932,7 +932,30 @@ footer {
 
 @media (min-width: 770px) {
   .socialMedia-links {
-    display: none;
+    position: fixed;
+    left: 5%;
+    bottom: 0%;
+    opacity: 0;
+    animation-name: fade-enter;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
+    animation-delay: calc(var(--a-fade-up-delay) + 1s);
+    animation-fill-mode: forwards;
+  }
+
+  .socialMedia-links__list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    align-items: center;
+  }
+
+  .socialMedia-links__list::after {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 140px;
+    background-color: var(--fc-light-text-color);
   }
 }
 /* *CREDIT SECTION END*/
