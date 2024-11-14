@@ -13,6 +13,7 @@ import { ReactNode } from "react";
 export default async function Home() {
   const projects = await readProjects();
   const companies: Company[] = await readCompanies();
+  const email = "nahomgizaw4@gmail.com";
 
   return (
     <SplashScreen>
@@ -20,8 +21,8 @@ export default async function Home() {
         <Header>{renderHeaderContent()}</Header>
         <Main>{renderMainContent()}</Main>
         <aside className="side-email">
-          <a className="side-email__text" href="mailto:nahomgizaw4@gmail.com">
-            nahomgizaw4@gmail.com
+          <a className="side-email__text" href={`mailto:${email}`}>
+            {email}
           </a>
         </aside>
         <Footer />
@@ -323,7 +324,7 @@ export default async function Home() {
         </p>
         <a
           className="action-link contact__action-link"
-          href="mailto:nahomgizaw4@gmail.com"
+          href={`mailto:${email}`}
         >
           Say Hello
         </a>
