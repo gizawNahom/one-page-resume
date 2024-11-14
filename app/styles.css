@@ -946,7 +946,7 @@ footer {
   .socialMedia-links__list {
     display: flex;
     flex-direction: column;
-    row-gap: 30px;
+    row-gap: 45px;
     align-items: center;
   }
 
@@ -954,11 +954,59 @@ footer {
     content: "";
     display: block;
     width: 1px;
-    height: 140px;
+    height: 95px;
     background-color: var(--fc-light-text-color);
   }
 }
 /* *CREDIT SECTION END*/
+
+/**SIDE EMAIL*/
+.side-email {
+  display: none;
+}
+
+@media (min-width: 770px) {
+  .side-email {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 30px;
+    position: fixed;
+    font-family: var(--ff-mono-space);
+    color: var(--fc-light-text-color);
+    bottom: 0%;
+    right: 4.7%;
+    opacity: 0;
+    animation-name: fade-enter;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
+    animation-delay: calc(var(--a-fade-up-delay) + 1s);
+    animation-fill-mode: forwards;
+  }
+
+  .side-email::after {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 95px;
+    background-color: var(--fc-light-text-color);
+  }
+
+  .side-email__text {
+    writing-mode: vertical-rl;
+    font-size: var(--fs-m);
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+    text-align: center;
+  }
+
+  .side-email__text:hover {
+    color: var(--c-accent);
+  }
+}
+/**SIDE EMAIL END*/
 
 /* *SPLASH SCREEN*/
 .splash-screen {

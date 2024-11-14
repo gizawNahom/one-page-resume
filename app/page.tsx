@@ -19,6 +19,11 @@ export default async function Home() {
       <>
         <Header>{renderHeaderContent()}</Header>
         <Main>{renderMainContent()}</Main>
+        <aside className="side-email">
+          <a className="side-email__text" href="mailto:nahomgizaw4@gmail.com">
+            nahomgizaw4@gmail.com
+          </a>
+        </aside>
         <Footer />
       </>
     </SplashScreen>
