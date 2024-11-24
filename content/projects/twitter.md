@@ -7,6 +7,8 @@ tools:
   - TailwindCSS
   - ExpressJS
   - Socket.IO
+  - Prisma
+  - PostgreSQL
 
 cover: "/imgs/twitter.png"
 github: 'https://github.com/gizawNahom/twitter/'
