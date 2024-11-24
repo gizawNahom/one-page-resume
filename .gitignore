@@ -37,8 +37,12 @@ next-env.d.ts
 
 # todo
 todo.txt
-node_modules/
+
+# Playwright
 /test-results/
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+
+# Lighthouse
+.lighthouseci
