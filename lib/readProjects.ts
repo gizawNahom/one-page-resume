@@ -3,6 +3,7 @@ import path from "path";
 import matter from "front-matter";
 import { marked, Tokens } from "marked";
 export interface Project {
+  order: number;
   name: string;
   description: string;
   tools: string[];
@@ -13,6 +14,7 @@ export interface Project {
 
 type ProjectDTO = {
   attributes: {
+    order: number;
     name: string;
     tools: string[];
     cover: string;
@@ -25,7 +27,8 @@ type ProjectDTO = {
 export async function readProjects(): Promise<Project[]> {
   const directory = "./content/projects";
   const markdownFiles = await readProjectFiles(directory);
-  return await parseProjects(directory);
+  const projects = await parseProjects(directory);
+  return sortProjects(projects);
 
   async function readProjectFiles(directory: string) {
     const files = await fs.readdir(directory);
@@ -59,6 +62,7 @@ export async function readProjects(): Promise<Project[]> {
 
     function buildProject(parsed: ProjectDTO, description: string) {
       return {
+        order: parsed.attributes.order,
         name: parsed.attributes.name,
         description: description,
         tools: parsed.attributes.tools,
@@ -71,6 +75,10 @@ export async function readProjects(): Promise<Project[]> {
     function addToParsedProjects(project: Project) {
       projects.push(project);
     }
+  }
+
+  function sortProjects(projects: Project[]): Project[] {
+    return projects.sort((p1, p2) => p1.order - p2.order);
   }
 }
 

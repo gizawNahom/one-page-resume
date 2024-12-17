@@ -1,4 +1,5 @@
 ---
+order: 4
 name: Loyalty System Integration
 tools:
   - C#
