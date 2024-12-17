@@ -110,7 +110,11 @@ export default async function Home() {
           I am a software engineer who cares about building empirically-scoped,
           high-quality software on time and within budget. I am currently
           freelancing on{" "}
-          <a href={upworkLink} className="content-link" target="_blank">
+          <a
+            href="https://www.upwork.com/"
+            className="content-link"
+            target="_blank"
+          >
             Upwork
           </a>
           .
