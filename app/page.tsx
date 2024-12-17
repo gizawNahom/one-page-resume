@@ -10,21 +10,26 @@ import { Experience } from "@/components/experience";
 import { Company, readCompanies } from "@/lib/readCompanies";
 import { ReactNode } from "react";
 
+const IS_UPWORK = process.env.IS_UPWORK;
+
 export default async function Home() {
   const projects = await readProjects();
   const companies: Company[] = await readCompanies();
   const email = "nahomgizaw4@gmail.com";
+  const upworkLink = "https://www.upwork.com/freelancers/~011abe9054337668dc";
 
   return (
     <SplashScreen>
       <>
         <Header>{renderHeaderContent()}</Header>
         <Main>{renderMainContent()}</Main>
-        <aside className="side-email">
-          <a className="side-email__text" href={`mailto:${email}`}>
-            {email}
-          </a>
-        </aside>
+        {!IS_UPWORK && (
+          <aside className="side-email">
+            <a className="side-email__text" href={`mailto:${email}`}>
+              {email}
+            </a>
+          </aside>
+        )}
         <Footer />
       </>
     </SplashScreen>
@@ -105,18 +110,14 @@ export default async function Home() {
           I am a software engineer who cares about building empirically-scoped,
           high-quality software on time and within budget. I am currently
           freelancing on{" "}
-          <a
-            href="https://www.upwork.com/freelancers/~011abe9054337668dc"
-            className="content-link"
-            target="_blank"
-          >
+          <a href={upworkLink} className="content-link" target="_blank">
             Upwork
           </a>
           .
         </p>
         <a
           className="fade-up action-link hero__action-link"
-          href="https://www.upwork.com/freelancers/~011abe9054337668dc"
+          href={upworkLink}
           target="_blank"
         >
           Check out my profile!
@@ -314,6 +315,8 @@ export default async function Home() {
   }
 
   function renderContactSection() {
+    const contactLink = IS_UPWORK ? upworkLink : `mailto:${email}`;
+
     return (
       <section id="contact" className="contact animated-in-section">
         <h1 className="green-text contact__green-text">What&#39;s Next?</h1>
@@ -322,10 +325,7 @@ export default async function Home() {
           Whether you’re interested in collaborating on a project, discussing a
           new idea, or simply saying hello, I’d love to connect!
         </p>
-        <a
-          className="action-link contact__action-link"
-          href={`mailto:${email}`}
-        >
+        <a className="action-link contact__action-link" href={contactLink}>
           Say Hello
         </a>
       </section>
@@ -336,7 +336,7 @@ export default async function Home() {
 function Footer() {
   return (
     <footer id="credits">
-      <SocialMediaLinks />
+      {!IS_UPWORK && <SocialMediaLinks />}
       <div className="credits">
         <a
           href="https://github.com/gizawNahom/one-page-resume"

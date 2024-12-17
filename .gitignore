@@ -46,3 +46,5 @@ todo.txt
 
 # Lighthouse
 .lighthouseci
+
+.env
