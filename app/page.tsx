@@ -147,8 +147,8 @@ export default async function Home() {
               <a href="https://www.aait.edu.et/" className="content-link">
                 AAIT
               </a>
-              (Addis Ababa Institute of Technology)—where I studied software
-              engineering—in one of the first courses I took.
+              —where I studied software engineering—in one of the first courses
+              I took.
             </p>
             <p>
               It was a&nbsp;
