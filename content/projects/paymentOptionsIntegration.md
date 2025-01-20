@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 2
 name: Payment options integration
 tools:
   - .NET Core
