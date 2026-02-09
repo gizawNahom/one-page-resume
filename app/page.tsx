@@ -16,7 +16,8 @@ export default async function Home() {
   const projects = await readProjects();
   const companies: Company[] = await readCompanies();
   const email = "nahomgizaw4@gmail.com";
-  const upworkLink = "https://www.upwork.com/freelancers/~011abe9054337668dc";
+  // const upworkLink = "https://www.upwork.com/freelancers/~011abe9054337668dc";
+  const upworkLink = "https://www.linkedin.com/in/nahom-gizaw-7ab824311/";
 
   return (
     <SplashScreen>
@@ -109,13 +110,13 @@ export default async function Home() {
         <p className="hero__text fade-up">
           I am a software engineer who cares about building empirically-scoped,
           high-quality software on time and within budget. I am currently
-          freelancing on{" "}
+          working at{" "}
           <a
-            href="https://www.upwork.com/"
+            href="https://www.eaglelionsystems.com/"
             className="content-link"
             target="_blank"
           >
-            Upwork
+            EagleLion
           </a>
           .
         </p>
