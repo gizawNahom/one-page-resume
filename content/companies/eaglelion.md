@@ -1,6 +1,6 @@
 ---
 order: 5
-companyName: EagleLion System Technology
+companyName: EagleLion
 companyWebsite: https://www.eaglelionsystems.com/
 title: Senior Software Engineer
 duration: Feb 2025 – Present
