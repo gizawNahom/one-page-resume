@@ -225,7 +225,7 @@ export default async function Home() {
                 craftsman: a professional striving for maximum quality,
                 accountability and integrity.
               </p>
-              <p>
+              {/* <p>
                 I started my career as an intern at a software company
                 called&nbsp;
                 <a href="https://www.minabtech.com/" className="content-link">
@@ -286,7 +286,7 @@ export default async function Home() {
                 <li>Javascript(ES6+)</li>
                 <li>C#</li>
                 <li>Express.js</li>
-              </ul>
+              </ul> */}
             </div>
           </div>
           <div id="profile-picture">
