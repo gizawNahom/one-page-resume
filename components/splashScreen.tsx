@@ -1,12 +1,23 @@
 "use client";
 import React, { ReactNode, useEffect, useState } from "react";
-import Script from "next/script";
 
 export function SplashScreen({ children }: { children: ReactNode }) {
   const [isLoading, setIsLoading] = useState(true);
+  const splashKey = "splashSeen";
 
   useEffect(() => {
+    if (typeof window !== "undefined") {
+      const alreadySeen = sessionStorage.getItem(splashKey);
+      if (alreadySeen) {
+        setIsLoading(false);
+        return;
+      }
+    }
+
     const timer = setTimeout(() => {
+      if (typeof window !== "undefined") {
+        sessionStorage.setItem(splashKey, "true");
+      }
       setIsLoading(false);
     }, 1005);
 
@@ -20,7 +31,6 @@ export function SplashScreen({ children }: { children: ReactNode }) {
       ) : (
         <>
           {children}
-          <Script src="./script.js" />
         </>
       )}
     </>

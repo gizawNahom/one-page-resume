@@ -38,6 +38,7 @@ export function Experience({ companies }: { companies: Company[] }) {
             className="content-link"
             href={company.companyWebsite}
             target="_blank"
+            rel="noopener noreferrer"
           >
             {company.companyName}
           </a>

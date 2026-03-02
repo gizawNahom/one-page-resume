@@ -8,6 +8,7 @@ export function useTabsHandler() {
       const tabPanels = Array.from(
         document.querySelectorAll("#experience [role=tabpanel]")
       ) as HTMLElement[];
+      if (tabs.length === 0 || tabPanels.length === 0) return;
       const poleSelector = createPoleSelector();
       const handler = tabsHandler({ tabs, tabPanels, poleSelector });
       tabs.forEach((t) => t.addEventListener("click", handler));
@@ -69,12 +70,19 @@ export function useTabsHandler() {
         }
   
         function moveSelectorToOrder(order: number) {
-          if (order === 0) moveTo("first-tab");
-          else if (order == 1) moveTo("second-tab");
-          else if (order == 2) moveTo("third-tab");
-          else if (order == 3) moveTo("fourth-tab");
+          const tabClasses = [
+            "first-tab",
+            "second-tab",
+            "third-tab",
+            "fourth-tab",
+            "fifth-tab",
+          ];
+          const className = tabClasses[order];
+          if (!className) return;
+          moveTo(className);
   
           function moveTo(tabName: string) {
+            if (!poleSelector.element) return;
             poleSelector.element.setAttribute(
               "class",
               `${poleSelector.className} ${tabName}`

@@ -336,6 +336,12 @@ section .content {
   line-height: 24px;
 }
 
+.hero__cta-container {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
 .hero__action-link {
   margin-top: 40px;
   width: fit-content;
@@ -363,12 +369,22 @@ section .content {
 
   .hero__action-link {
     animation-delay: 0.6s;
+    font-size: 0.85rem;
+    padding: 0.6rem 0.8rem;
   }
 }
 
 @media (max-height: 700px) and (min-width: 700px), (max-width: 360px) {
   .hero {
     padding-top: var(--s-header-height);
+  }
+}
+
+@media (max-width: 360px) {
+  .hero__cta-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
   }
 }
 /* *HERO SECTION END */
