@@ -53,7 +53,7 @@ export default function DashenSuperAppCaseStudy() {
                     <ul style={{ listStyle: 'none', padding: 0 }}>
                         <li style={{ marginBottom: '0.5rem', display: 'flex', alignItems: 'flex-start' }}>
                             <span style={{ color: 'var(--c-accent)', marginRight: '10px' }}>1.</span>
-                            <span><strong>Async State Machine:</strong> Dashen's account creation was slow and eventually consistent. I built a worker loop that polled our DB for pending accounts, created them in Dashen's system, verified creation, and updated state. The loop had backpressure control to respect Dashen's connection limits.</span>
+                            <span><strong>Async State Machine:</strong> Dashen&#39;s account creation was slow and eventually consistent. I built a worker loop that polled our DB for pending accounts, created them in Dashen&#39;s system, verified creation, and updated state. The loop had backpressure control to respect Dashen&#39;s connection limits.</span>
                         </li>
                         <li style={{ marginBottom: '0.5rem', display: 'flex', alignItems: 'flex-start' }}>
                             <span style={{ color: 'var(--c-accent)', marginRight: '10px' }}>2.</span>
@@ -70,7 +70,7 @@ export default function DashenSuperAppCaseStudy() {
                 <div style={{ marginBottom: '4rem' }}>
                     <h2 style={{ color: 'var(--fc-normal-text-color)', marginBottom: '1rem' }}>System 2: SIM Swap Detection — Fraud Prevention</h2>
                     <p style={{ lineHeight: '1.6', fontSize: '1.1rem', marginBottom: '1rem' }}>
-                        Mobile banking accounts are vulnerable to SIM swap fraud: attackers hijack a victim's phone number to intercept SMS OTPs and drain accounts.
+                        Mobile banking accounts are vulnerable to SIM swap fraud: attackers hijack a victim&#39;s phone number to intercept SMS OTPs and drain accounts.
                     </p>
                     <p style={{ lineHeight: '1.6', fontSize: '1.1rem', marginBottom: '1rem' }}>
                         I built a backend service that verifies SIM card ownership on every request.
@@ -78,7 +78,7 @@ export default function DashenSuperAppCaseStudy() {
                     <ul style={{ listStyle: 'none', padding: 0 }}>
                         <li style={{ marginBottom: '0.5rem', display: 'flex', alignItems: 'flex-start' }}>
                             <span style={{ color: 'var(--c-accent)', marginRight: '10px' }}>1.</span>
-                            <span><strong>Real-Time Verification:</strong> On every critical request (login, transaction), the service fetches current SIM metadata from Ethiotelecom's API—ownership change timestamp, status (active/blocked), and other fields.</span>
+                            <span><strong>Real-Time Verification:</strong> On every critical request (login, transaction), the service fetches current SIM metadata from Ethiotelecom&#39;s API—ownership change timestamp, status (active/blocked), and other fields.</span>
                         </li>
                         <li style={{ marginBottom: '0.5rem', display: 'flex', alignItems: 'flex-start' }}>
                             <span style={{ color: 'var(--c-accent)', marginRight: '10px' }}>2.</span>
@@ -90,7 +90,7 @@ export default function DashenSuperAppCaseStudy() {
                         </li>
                     </ul>
                     <p style={{ lineHeight: '1.6', fontSize: '1.1rem', marginTop: '1rem' }}>
-                        The challenge: this had to be <strong>fast</strong> (can't add seconds to every login) and <strong>resilient</strong> (can't fail all requests when Ethiotelecom's API is down). I implemented caching and circuit breaking to balance security with availability.
+                        The challenge: this had to be <strong>fast</strong> (can&#39;t add seconds to every login) and <strong>resilient</strong> (can&#39;t fail all requests when Ethiotelecom&#39;s API is down). I implemented caching and circuit breaking to balance security with availability.
                     </p>
                 </div>
 
@@ -99,7 +99,7 @@ export default function DashenSuperAppCaseStudy() {
                     <h2 style={{ color: 'var(--fc-normal-text-color)', marginBottom: '1rem' }}>Constraints & Tradeoffs</h2>
                     <p style={{ lineHeight: '1.6', fontSize: '1.1rem', marginBottom: '1rem' }}>
                         <strong>Sync vs. Async:</strong> Ideally, onboarding is synchronous. But external checks could take 10-30 seconds.
-                        We couldn't keep the HTTP connection open that long.
+                        We couldn&#39;t keep the HTTP connection open that long.
                     </p>
                     <p style={{ lineHeight: '1.6', fontSize: '1.1rem', marginBottom: '1rem' }}>
                         We moved to a <strong>Polling</strong> model for the heavy checks. The client initiates a check, gets a `check_id`, and polls for status.
@@ -112,7 +112,7 @@ export default function DashenSuperAppCaseStudy() {
                     <h2 style={{ color: 'var(--fc-normal-text-color)', marginBottom: '1rem' }}>What I Learned</h2>
                     <p style={{ lineHeight: '1.6', fontSize: '1.1rem' }}>
                         You cannot trust external dependencies. You must defensively program against them (timeouts, circuit breakers, retries).
-                        Also, <strong>domain modeling</strong> pays off—by standardizing our internal "User" model early, we could swap out identity providers later without rewriting the app.
+                        Also, <strong>domain modeling</strong> pays off—by standardizing our internal &quot;User&quot; model early, we could swap out identity providers later without rewriting the app.
                     </p>
                 </div>
 

@@ -43,7 +43,7 @@ export default function DigitalWalletCaseStudy() {
                         </li>
                         <li style={{ marginBottom: '0.5rem', display: 'flex', alignItems: 'flex-start' }}>
                             <span style={{ color: 'var(--c-accent)', marginRight: '10px' }}>▹</span>
-                            <span>Handled concurrency for "hot wallets" using pessimistic locking.</span>
+                            <span>Handled concurrency for &quot;hot wallets&quot; using pessimistic locking.</span>
                         </li>
                     </ul>
                 </div>
@@ -52,16 +52,16 @@ export default function DigitalWalletCaseStudy() {
                 <div style={{ marginBottom: '4rem' }}>
                     <h2 style={{ color: 'var(--fc-normal-text-color)', marginBottom: '1rem' }}>Architecture Detail: The Immutable Ledger</h2>
                     <p style={{ lineHeight: '1.6', fontSize: '1.1rem', marginBottom: '1rem' }}>
-                        We initially started with a simple "current balance" column. However, debugging discrepancies became impossible.
+                        We initially started with a simple &quot;current balance&quot; column. However, debugging discrepancies became impossible.
                         I refactored this into an <strong>Event-Sourced Ledger</strong> pattern.
                     </p>
                     <p style={{ lineHeight: '1.6', fontSize: '1.1rem', marginBottom: '1rem' }}>
                         Instead of updating a balance, every transaction inserts two rows (Debit + Credit) into an immutable <code>Journal</code> table.
-                        The user's balance is a derived view (sum of all credits - sum of all debits).
+                        The user&#39;s balance is a derived view (sum of all credits - sum of all debits).
                     </p>
                     <div style={{ background: 'var(--c-secondary)', padding: '1.5rem', borderRadius: '5px', borderLeft: '3px solid var(--c-accent)' }}>
                         <p style={{ margin: 0, fontStyle: 'italic', color: 'var(--fc-light-text-color)' }}>
-                            "This shift allowed us to replay history to prove the correctness of any account balance at any point in time. It turned debugging from 'guesswork' into 'accounting'."
+                            &quot;This shift allowed us to replay history to prove the correctness of any account balance at any point in time. It turned debugging from &#39;guesswork&#39; into &#39;accounting&#39;.&quot;
                         </p>
                     </div>
                 </div>
@@ -70,7 +70,7 @@ export default function DigitalWalletCaseStudy() {
                 <div style={{ marginBottom: '4rem' }}>
                     <h2 style={{ color: 'var(--fc-normal-text-color)', marginBottom: '1rem' }}>Handling Distributed Failures: Idempotency</h2>
                     <p style={{ lineHeight: '1.6', fontSize: '1.1rem', marginBottom: '1rem' }}>
-                        In a distributed network, a timeout doesn't mean failure—it means "unknown state". If a client retries a transfer after a timeout, we risk double-spending.
+                        In a distributed network, a timeout doesn&#39;t mean failure—it means &quot;unknown state&quot;. If a client retries a transfer after a timeout, we risk double-spending.
                     </p>
                     <p style={{ lineHeight: '1.6', fontSize: '1.1rem', marginBottom: '1rem' }}>
                         I implemented an <strong>Idempotency Key</strong> strategy.
@@ -100,7 +100,7 @@ export default function DigitalWalletCaseStudy() {
                     <h2 style={{ color: 'var(--fc-normal-text-color)', marginBottom: '1rem' }}>Constraints & Tradeoffs</h2>
                     <p style={{ lineHeight: '1.6', fontSize: '1.1rem', marginBottom: '1rem' }}>
                         <strong>Throughput vs. Safety:</strong> We chose safety. We used <code>SELECT FOR UPDATE</code> (Pessimistic Locking) on database rows during transaction processing.
-                        This serializes access to a single wallet, which lowers throughput for "hot wallets" (like a merchant receiving 100 payments/sec), but guarantees we never encounter a race condition where a balance goes negative.
+                        This serializes access to a single wallet, which lowers throughput for &quot;hot wallets&quot; (like a merchant receiving 100 payments/sec), but guarantees we never encounter a race condition where a balance goes negative.
                     </p>
                 </div>
 
@@ -109,7 +109,7 @@ export default function DigitalWalletCaseStudy() {
                     <h2 style={{ color: 'var(--fc-normal-text-color)', marginBottom: '1rem' }}>What I Learned</h2>
                     <p style={{ lineHeight: '1.6', fontSize: '1.1rem' }}>
                         Building financial systems taught me that <strong>invariants</strong> are more important than features.
-                        Code that "mostly works" is broken in fintech. I learned to think in terms of failure states: "What happens if the DB commits but the response fails?" rather than just the happy path.
+                        Code that &quot;mostly works&quot; is broken in fintech. I learned to think in terms of failure states: &quot;What happens if the DB commits but the response fails?&quot; rather than just the happy path.
                     </p>
                 </div>
 
