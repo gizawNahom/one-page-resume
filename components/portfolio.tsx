@@ -221,9 +221,8 @@ export function Portfolio() {
       <a className="skip-link" href="#about">Skip to content</a>
       <aside className="identity-column" aria-label="Portfolio introduction">
         <div>
-          <a className="identity" href="#about" aria-label="Nahom Derese Gizaw, about section">
-            <span className="identity-mark" aria-hidden="true">NDG</span>
-            <h1>Nahom Derese Gizaw</h1>
+          <a className="identity" href="#about" aria-label="Nahom Gizaw, about section">
+            <h1>Nahom Gizaw</h1>
           </a>
           <p className="role">Senior Backend Engineer</p>
           <p className="positioning">Building dependable distributed systems for high-integrity transactions, digital identity, and event-driven workflows.</p>

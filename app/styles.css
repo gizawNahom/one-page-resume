@@ -93,7 +93,6 @@ a:focus-visible {
   display: inline-block;
 }
 
-.identity-mark,
 .eyebrow {
   color: var(--accent);
   font: 500 12px/1.5 "SFMono-Regular", Consolas, "Liberation Mono", monospace;
@@ -103,7 +102,7 @@ a:focus-visible {
 
 .identity h1 {
   max-width: 380px;
-  margin: 14px 0 8px;
+  margin: 0 0 10px;
   font-size: clamp(40px, 4.3vw, 62px);
   line-height: 1.02;
   letter-spacing: 0;
