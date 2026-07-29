@@ -27,7 +27,7 @@ test("desktop navigation tracks short and final sections while scrolling", async
   await expect(page.getByRole("link", { name: "Experience" })).toHaveAttribute("aria-current", "location");
 
   await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
-  await expect(page.getByRole("link", { name: "Contact" })).toHaveAttribute("aria-current", "location");
+  await expect(page.getByRole("link", { name: "Skills" })).toHaveAttribute("aria-current", "location");
 });
 
 test("single-column layouts do not show a horizontal section navigation strip", async ({ page }) => {

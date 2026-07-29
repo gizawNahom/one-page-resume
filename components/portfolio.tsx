@@ -23,8 +23,6 @@ const navItems = [
   ["experience", "Experience"],
   ["systems", "Selected Systems"],
   ["skills", "Skills"],
-  ["education", "Education"],
-  ["contact", "Contact"],
 ] as const;
 
 const experiences: Experience[] = [
@@ -184,7 +182,7 @@ export function Portfolio() {
         window.innerHeight + window.scrollY >=
         document.documentElement.scrollHeight - 2;
       if (isAtDocumentEnd) {
-        setActiveSection("contact");
+        setActiveSection(navItems[navItems.length - 1][0]);
         return;
       }
 
@@ -274,26 +272,6 @@ export function Portfolio() {
           <dl className="skills-grid">
             {skillGroups.map(([group, skills]) => <div key={group}><dt>{group}</dt><dd>{skills}</dd></div>)}
           </dl>
-        </section>
-
-        <section id="education" aria-labelledby="education-title">
-          <SectionHeading id="education-title">Education</SectionHeading>
-          <div className="education-entry">
-            <p className="eyebrow">Dec 2020</p>
-            <h3>Addis Ababa University - Addis Ababa Institute of Technology (AAiT)</h3>
-            <p>BSc in Software Engineering, Great Distinction</p>
-            <p>GPA: 3.52</p>
-          </div>
-        </section>
-
-        <section id="contact" className="contact-section" aria-labelledby="contact-title">
-          <SectionHeading id="contact-title">Contact</SectionHeading>
-          <div className="prose">
-            <p>For senior backend engineering opportunities, connect through LinkedIn or review Nahom&apos;s public work on GitHub and Stack Overflow.</p>
-          </div>
-          <div className="contact-links">
-            {links.map(([label, href]) => <ExternalLink key={label} href={href}>{label}</ExternalLink>)}
-          </div>
         </section>
 
         <footer>
