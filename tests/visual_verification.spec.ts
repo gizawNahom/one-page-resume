@@ -1,25 +1,15 @@
-import { test, expect } from '@playwright/test';
+import { expect, test } from "@playwright/test";
 
-test('visual verification', async ({ page }) => {
-  // 1. Homepage
-  await page.goto('http://localhost:3000');
-  await page.setViewportSize({ width: 1280, height: 1600 }); // Large height to see more
-
-  // Verify copy
-  await expect(page.locator('body')).toContainText('Senior Software Engineer');
-  await expect(page.locator('body')).toContainText('Selected Case Studies');
-  await expect(page.locator('body')).not.toContainText("Some Things I've Built");
-
-  await page.screenshot({ path: 'tests/verification_artifacts/homepage.png' });
-
-  // 2. Click Digital Wallet Link
-  await page.click('text=Digital Wallet');
-  await page.waitForURL('**/case-studies/digital-wallet');
-  await page.screenshot({ path: 'tests/verification_artifacts/wallet.png' });
-
-  // 3. Back and Click SuperApp
-  await page.goto('http://localhost:3000');
-  await page.click('text=Dashen SuperApp');
-  await page.waitForURL('**/case-studies/dashen-superapp');
-  await page.screenshot({ path: 'tests/verification_artifacts/superapp.png' });
-});
+for (const viewport of [
+  { name: "desktop", width: 1440, height: 900 },
+  { name: "tablet", width: 1024, height: 768 },
+  { name: "mobile", width: 390, height: 844 },
+]) {
+  test(`${viewport.name} portfolio verification`, async ({ page }) => {
+    await page.setViewportSize({ width: viewport.width, height: viewport.height });
+    await page.goto("/");
+    await expect(page.locator("body")).toContainText("Senior Backend Engineer");
+    await expect(page.locator("body")).toContainText("Layout inspired by Brittany Chiang's portfolio");
+    await page.screenshot({ path: `test-results/portfolio-${viewport.name}.png`, fullPage: true, animations: "disabled" });
+  });
+}

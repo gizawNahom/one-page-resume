@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "npm run minifyOldScript && next dev",
-    "build": "npm run minifyOldScript && next build",
+    "dev": "next dev",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "minifyOldScript": "npx terser ./lib/oldScript.js -o ./public/script.js"
+    "test": "playwright test"
   },
   "dependencies": {
     "front-matter": "^4.0.2",

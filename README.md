@@ -4,4 +4,4 @@ A single-page [website](https://one-page-resume.vercel.app/) that tells you
 
 ## Acknowledgements
 
-- Design inspired by Brittany Chiang - <https://v4.brittanychiang.com/>
+- Layout inspired by [Brittany Chiang's portfolio](https://brittanychiang.com/).
