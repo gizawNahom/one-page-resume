@@ -5,9 +5,9 @@
   --line: #32423d;
   --text: #e7ede9;
   --muted: #aebdb7;
-  --accent: #f0a967;
-  --accent-strong: #ffbd80;
-  --focus: #78c6b0;
+  --accent: #67c7a3;
+  --accent-strong: #8cdbbc;
+  --focus: #a5e8cf;
   --spotlight-x: 50vw;
   --spotlight-y: 28vh;
 }
@@ -35,7 +35,7 @@ body::before {
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background: radial-gradient(540px circle at var(--spotlight-x) var(--spotlight-y), rgba(120, 198, 176, .09), transparent 68%);
+  background: radial-gradient(540px circle at var(--spotlight-x) var(--spotlight-y), rgba(103, 199, 163, .09), transparent 68%);
 }
 
 a {
