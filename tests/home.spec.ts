@@ -43,6 +43,7 @@ test("mobile section header uses a sticky presentation", async ({ page }) => {
   await expect(indicator).toHaveText("About");
   await expect(indicator).toHaveCSS("position", "sticky");
   await expect(indicator).toHaveCSS("font-size", "16px");
+  await expect(page.getByRole("heading", { name: "About" })).toHaveCSS("width", "1px");
 });
 
 test("retains factual case-study routes", async ({ page }) => {
