@@ -25,9 +25,9 @@ a:focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; border-r
 .role { margin: 0; color: var(--text); font-size: 19px; font-weight: 700; }
 .positioning { max-width: 390px; margin: 19px 0 0; color: var(--muted); }
 .section-nav { display: grid; gap: 11px; margin: 54px 0; }
-.section-nav a { display: inline-flex; align-items: center; width: fit-content; gap: 12px; color: var(--muted); font: 500 12px/1.4 "SFMono-Regular", Consolas, "Liberation Mono", monospace; letter-spacing: .04em; text-decoration: none; text-transform: uppercase; transition: color .18s ease; }
+.section-nav a { display: inline-flex; align-items: center; width: fit-content; gap: 12px; color: var(--muted); font: 500 11px/1.4 "SFMono-Regular", Consolas, "Liberation Mono", monospace; letter-spacing: .06em; opacity: .72; text-decoration: none; text-transform: uppercase; transition: color .18s ease, opacity .18s ease; }
 .section-nav a span { display: block; width: 24px; height: 1px; background: currentColor; transition: width .18s ease; }
-.section-nav a:hover, .section-nav a.active { color: var(--accent-strong); }
+.section-nav a:hover, .section-nav a.active { color: var(--accent-strong); opacity: 1; }
 .section-nav a.active span { width: 48px; }
 .profile-links, .contact-links { display: flex; flex-wrap: wrap; gap: 12px 18px; }
 .profile-links a, .contact-links a, footer a { color: var(--muted); font: 500 13px/1.5 "SFMono-Regular", Consolas, "Liberation Mono", monospace; text-decoration: none; }

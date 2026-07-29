@@ -165,17 +165,45 @@ export function Portfolio() {
     const sections = navItems
       .map(([id]) => document.getElementById(id))
       .filter((section): section is HTMLElement => Boolean(section));
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible) setActiveSection(visible.target.id);
-      },
-      { rootMargin: "-18% 0px -62% 0px", threshold: [0.05, 0.2, 0.45] },
-    );
-    sections.forEach((section) => observer.observe(section));
-    return () => observer.disconnect();
+    let animationFrame = 0;
+
+    const updateActiveSection = () => {
+      const isAtDocumentEnd =
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 2;
+      if (isAtDocumentEnd) {
+        setActiveSection("contact");
+        return;
+      }
+
+      const activationPoint = window.scrollY + window.innerHeight * 0.3;
+      const currentSection = sections.reduce<HTMLElement | undefined>(
+        (latest, section) =>
+          section.getBoundingClientRect().top + window.scrollY <= activationPoint
+            ? section
+            : latest,
+        undefined,
+      );
+
+      if (currentSection) setActiveSection(currentSection.id);
+    };
+
+    const requestUpdate = () => {
+      if (animationFrame) return;
+      animationFrame = window.requestAnimationFrame(() => {
+        animationFrame = 0;
+        updateActiveSection();
+      });
+    };
+
+    updateActiveSection();
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate);
+    return () => {
+      window.cancelAnimationFrame(animationFrame);
+      window.removeEventListener("scroll", requestUpdate);
+      window.removeEventListener("resize", requestUpdate);
+    };
   }, []);
 
   return (
@@ -206,8 +234,9 @@ export function Portfolio() {
         <section id="about" aria-labelledby="about-title">
           <SectionHeading id="about-title">About</SectionHeading>
           <div className="prose">
-            <p>Nahom is a senior backend-focused engineer with experience building distributed systems for financial services, digital wallets, digital onboarding, and fraud intelligence. His work centers on high-integrity transaction flows, reusable SDKs, identity-resolution services, and event-driven delivery.</p>
-            <p>He works comfortably across TypeScript and Go, pairing pragmatic system design with strong delivery practices. Recent work spans financial platforms and digital identity integrations where reliability, explicit failure handling, and maintainable services matter.</p>
+            <p>I am a senior backend-focused engineer who builds distributed systems for financial services, digital wallets, digital onboarding, and fraud intelligence. My work centers on high-integrity transaction flows, reusable SDKs, identity-resolution services, and event-driven delivery.</p>
+            <p>I have worked on financial platforms and digital-identity integrations where reliability and explicit failure handling matter. That includes transaction and ledger capabilities, account-creation workflows, identity harmonization channels, and services designed to behave predictably across retries and partial failures.</p>
+            <p>I work across TypeScript and Go, pairing pragmatic system design with strong delivery practices. I value clear domain boundaries, executable specifications, and maintainable services that give teams confidence as systems evolve.</p>
           </div>
         </section>
 

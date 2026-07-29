@@ -12,9 +12,22 @@ test("renders the private-contact senior backend portfolio", async ({ page }) =>
 
 test("section navigation updates and works without hover", async ({ page }) => {
   await page.goto("/");
+  await page.addStyleTag({ content: "html { scroll-behavior: auto !important; }" });
   await page.getByRole("link", { name: "Skills" }).first().click();
   await expect(page.getByRole("heading", { name: "Technical Skills" })).toBeInViewport();
   await expect(page.getByRole("link", { name: "Skills" }).first()).toHaveAttribute("aria-current", "location");
+});
+
+test("desktop navigation tracks short and final sections while scrolling", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/");
+  await page.addStyleTag({ content: "html { scroll-behavior: auto !important; }" });
+
+  await page.locator("#experience").scrollIntoViewIfNeeded();
+  await expect(page.getByRole("link", { name: "Experience" })).toHaveAttribute("aria-current", "location");
+
+  await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
+  await expect(page.getByRole("link", { name: "Contact" })).toHaveAttribute("aria-current", "location");
 });
 
 test("retains factual case-study routes", async ({ page }) => {
