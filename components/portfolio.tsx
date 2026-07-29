@@ -162,6 +162,16 @@ export function Portfolio() {
   const [activeSection, setActiveSection] = useState("about");
 
   useEffect(() => {
+    const updateSpotlight = (event: PointerEvent) => {
+      document.documentElement.style.setProperty("--spotlight-x", `${event.clientX}px`);
+      document.documentElement.style.setProperty("--spotlight-y", `${event.clientY}px`);
+    };
+
+    window.addEventListener("pointermove", updateSpotlight, { passive: true });
+    return () => window.removeEventListener("pointermove", updateSpotlight);
+  }, []);
+
+  useEffect(() => {
     const sections = navItems
       .map(([id]) => document.getElementById(id))
       .filter((section): section is HTMLElement => Boolean(section));
