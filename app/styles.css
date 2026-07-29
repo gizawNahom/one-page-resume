@@ -119,6 +119,7 @@ a:focus-visible {
   max-width: 390px;
   margin: 19px 0 0;
   color: var(--muted);
+  font-size: 18px;
 }
 
 .section-nav {
@@ -133,7 +134,7 @@ a:focus-visible {
   width: fit-content;
   gap: 12px;
   color: var(--muted);
-  font: 500 11px/1.4 "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font: 500 13px/1.4 "SFMono-Regular", Consolas, "Liberation Mono", monospace;
   letter-spacing: .06em;
   opacity: .72;
   text-decoration: none;
@@ -143,7 +144,7 @@ a:focus-visible {
 
 .section-nav a span {
   display: block;
-  width: 24px;
+  width: 32px;
   height: 1px;
   background: currentColor;
   transition: width .18s ease;
@@ -152,11 +153,12 @@ a:focus-visible {
 .section-nav a:hover,
 .section-nav a.active {
   color: var(--accent-strong);
+  font-weight: 600;
   opacity: 1;
 }
 
 .section-nav a.active span {
-  width: 48px;
+  width: 64px;
 }
 
 .profile-links {
@@ -197,26 +199,21 @@ section {
 }
 
 .section-heading {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin: 0 0 34px;
-  color: var(--text);
-  font-size: 23px;
-  line-height: 1.25;
-}
-
-.section-heading::after {
-  content: "";
+  position: absolute;
+  width: 1px;
   height: 1px;
-  flex: 1;
-  max-width: 160px;
-  background: var(--line);
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .prose {
   color: var(--muted);
   max-width: 660px;
+  font-size: 18px;
 }
 
 .prose p {
@@ -451,7 +448,11 @@ footer p {
 
   .positioning {
     max-width: 560px;
-    font-size: 15px;
+    font-size: 17px;
+  }
+
+  .prose {
+    font-size: 17px;
   }
 
   .section-nav {
@@ -483,22 +484,6 @@ footer p {
     text-transform: uppercase;
   }
 
-  .section-heading {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-  }
-
-  .section-heading::after {
-    display: none;
-  }
-
   .experience-entry {
     grid-template-columns: 1fr;
     gap: 7px;
@@ -524,6 +509,11 @@ footer p {
 
   .positioning {
     max-width: 500px;
+    font-size: 16px;
+  }
+
+  .prose {
+    font-size: 16px;
   }
 
   .mobile-section-indicator {
@@ -533,15 +523,6 @@ footer p {
 
   section {
     padding-bottom: 76px;
-  }
-
-  .section-heading {
-    margin-bottom: 26px;
-    font-size: 21px;
-  }
-
-  .section-heading::after {
-    max-width: none;
   }
 
   .skills-grid {
