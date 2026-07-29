@@ -246,7 +246,7 @@ export function Portfolio() {
         <section id="about" aria-labelledby="about-title">
           <SectionHeading id="about-title">About</SectionHeading>
           <div className="prose">
-            <p>I am a senior backend-focused engineer who builds distributed systems for financial services, digital wallets, digital onboarding, and fraud intelligence. My work centers on high-integrity transaction flows, reusable SDKs, identity-resolution services, and event-driven delivery.</p>
+            <p>I&apos;m a backend engineer drawn to systems where correctness matters. Much of my recent work has involved transaction processing, digital identity, and event-driven services&mdash;designing them to behave predictably under retries, concurrency, and partial failure.</p>
             <p>I have worked on financial platforms and digital-identity integrations where reliability and explicit failure handling matter. That includes transaction and ledger capabilities, account-creation workflows, identity harmonization channels, and services designed to behave predictably across retries and partial failures.</p>
             <p>I work across TypeScript and Go, pairing pragmatic system design with strong delivery practices. I value clear domain boundaries, executable specifications, and maintainable services that give teams confidence as systems evolve.</p>
           </div>
