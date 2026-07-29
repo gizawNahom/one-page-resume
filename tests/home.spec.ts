@@ -30,6 +30,21 @@ test("desktop navigation tracks short and final sections while scrolling", async
   await expect(page.getByRole("link", { name: "Contact" })).toHaveAttribute("aria-current", "location");
 });
 
+test("single-column layouts do not show a horizontal section navigation strip", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/", { waitUntil: "networkidle" });
+  await expect(page.locator(".section-nav")).toBeHidden();
+});
+
+test("mobile section header uses a sticky presentation", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/");
+  const indicator = page.locator(".mobile-section-indicator");
+  await expect(indicator).toHaveText("About");
+  await expect(indicator).toHaveCSS("position", "sticky");
+  await expect(indicator).toHaveCSS("font-size", "16px");
+});
+
 test("retains factual case-study routes", async ({ page }) => {
   await page.goto("/case-studies/digital-wallet");
   await expect(page.getByRole("heading", { name: "Digital Wallet Transaction Capabilities" })).toBeVisible();

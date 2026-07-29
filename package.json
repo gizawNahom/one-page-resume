@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "playwright test"
+    "pretest": "npm run build",
+    "test": "playwright test",
+    "test:server": "next start --hostname 127.0.0.1 --port 3010"
   },
   "dependencies": {
     "front-matter": "^4.0.2",

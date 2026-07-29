@@ -160,6 +160,8 @@ const links = [
 
 export function Portfolio() {
   const [activeSection, setActiveSection] = useState("about");
+  const activeSectionLabel =
+    navItems.find(([id]) => id === activeSection)?.[1] ?? "About";
 
   useEffect(() => {
     const updateSpotlight = (event: PointerEvent) => {
@@ -241,6 +243,9 @@ export function Portfolio() {
       </aside>
 
       <div className="reading-column">
+        <div className="mobile-section-indicator" aria-hidden="true">
+          <span>{activeSectionLabel}</span>
+        </div>
         <section id="about" aria-labelledby="about-title">
           <SectionHeading id="about-title">About</SectionHeading>
           <div className="prose">
