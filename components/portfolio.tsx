@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { JungWordAssociation } from "./jung-word-association";
 
 type Experience = {
   dates: string;
@@ -250,7 +251,7 @@ export function Portfolio() {
             <p>I&apos;ve contributed to financial platforms across digital wallets, payment integrations, customer onboarding, and identity harmonization. These projects required careful handling of transaction integrity, service boundaries, and failure recovery across distributed workflows.</p>
             <p>I work across TypeScript and Go, pairing pragmatic system design with strong delivery practices. I value clear domain boundaries, executable specifications, and maintainable services that give teams confidence as systems evolve.</p>
             <p>I have also contributed to the delivery practices around these systems, helping make expected behavior explicit and safe to change. That has included executable specifications, contract testing, mutation testing, and CI/CD practices that improve feedback before changes reach production.</p>
-            <p>Outside of engineering, I spend time studying depth psychology, particularly the work of Carl Jung. I value inner work as a practice of reflection: noticing patterns, making meaning, and staying curious about complexity in people and in myself. I return to these ideas because they encourage a more deliberate relationship with work, relationships, and responsibility. I find that practice of reflection valuable, both in how I approach my work and how I move through life.</p>
+            <p>Outside of engineering, I spend time studying depth psychology, particularly the work of <JungWordAssociation />. I value inner work as a practice of reflection: noticing patterns, making meaning, and staying curious about complexity in people and in myself. I return to these ideas because they encourage a more deliberate relationship with work, relationships, and responsibility. I find that practice of reflection valuable, both in how I approach my work and how I move through life.</p>
           </div>
         </section>
 

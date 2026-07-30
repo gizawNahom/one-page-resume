@@ -233,6 +233,189 @@ section {
   margin: 0 0 20px;
 }
 
+.jung-name {
+  --response-cursor-x: 50%;
+  --response-cursor-y: 50%;
+  position: relative;
+  display: inline-block;
+  color: var(--text);
+}
+
+.jung-name-text {
+  position: relative;
+  z-index: 1;
+}
+
+.jung-letter {
+  display: inline-block;
+  min-width: .14em;
+}
+
+.jung-response-marker {
+  position: absolute;
+  z-index: 2;
+  left: var(--response-cursor-x);
+  top: var(--response-cursor-y);
+  width: 24px;
+  height: 24px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: opacity .12s ease;
+}
+
+.jung-mandala {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 0;
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+  border: 2px solid #f7f2e7;
+  border-radius: 50%;
+  background: #d95143;
+  box-shadow: 0 0 0 2px rgba(247, 242, 231, .18), 0 7px 18px rgba(4, 10, 8, .36);
+}
+
+.jung-mandala::before,
+.jung-mandala::after {
+  position: absolute;
+  z-index: 2;
+  background: #d95143;
+  content: "";
+}
+
+.jung-mandala::before {
+  left: 50%;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  transform: translateX(-50%) scaleY(0);
+  transform-origin: 50% 50%;
+}
+
+.jung-mandala::after {
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 3px;
+  transform: translateY(-50%) scaleX(0);
+  transform-origin: 50% 50%;
+}
+
+.jung-response-cell {
+  background: #f7f2e7;
+}
+
+.jung-name.is-active {
+  cursor: none;
+}
+
+.jung-name.is-active .jung-response-marker {
+  opacity: 1;
+}
+
+.jung-name.is-active .jung-mandala {
+  animation: mandala-ring-reveal .2s cubic-bezier(.22, 1, .36, 1) both;
+}
+
+.jung-name.is-active .jung-mandala::before {
+  animation: mandala-vertical-reveal .16s cubic-bezier(.22, 1, .36, 1) .12s both;
+}
+
+.jung-name.is-active .jung-mandala::after {
+  animation: mandala-horizontal-reveal .16s cubic-bezier(.22, 1, .36, 1) .23s both;
+}
+
+.jung-name.is-active .jung-response-cell {
+  animation: mandala-cell-pulse .48s cubic-bezier(.22, 1, .36, 1) both;
+  animation-delay: .32s;
+}
+
+.jung-name.is-active .jung-response-cell:nth-child(2) {
+  animation-delay: .36s;
+}
+
+.jung-name.is-active .jung-response-cell:nth-child(3) {
+  animation-delay: .4s;
+}
+
+.jung-name.is-active .jung-response-cell:nth-child(4) {
+  animation-delay: .44s;
+}
+
+.jung-name.is-active .jung-letter {
+  animation: word-association-pulse .48s cubic-bezier(.22, 1, .36, 1) both;
+  animation-delay: calc(var(--letter-index) * 42ms);
+}
+
+@keyframes word-association-pulse {
+  0% {
+    color: var(--text);
+    text-shadow: none;
+    transform: translateY(0) scale(1);
+  }
+
+  40% {
+    color: var(--accent-strong);
+    text-shadow: 3px 0 0 rgba(103, 199, 163, .24);
+    transform: translateY(-2px) scale(1.035);
+  }
+
+  100% {
+    color: var(--accent-strong);
+    text-shadow: none;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes mandala-cell-pulse {
+  0% {
+    filter: saturate(.55) brightness(.75);
+    transform: scale(.76);
+  }
+
+  55% {
+    filter: saturate(1.25) brightness(1.18);
+    transform: scale(1.08);
+  }
+
+  100% {
+    filter: saturate(1) brightness(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes mandala-ring-reveal {
+  0% {
+    opacity: 0;
+    transform: scale(.68);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes mandala-vertical-reveal {
+  to {
+    transform: translateX(-50%) scaleY(1);
+  }
+}
+
+@keyframes mandala-horizontal-reveal {
+  to {
+    transform: translateY(-50%) scaleX(1);
+  }
+}
+
+
 .timeline {
   display: grid;
   gap: 44px;
