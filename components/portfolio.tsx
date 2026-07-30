@@ -247,7 +247,7 @@ export function Portfolio() {
           <SectionHeading id="about-title">About</SectionHeading>
           <div className="prose">
             <p>I&apos;m a backend engineer drawn to systems where correctness matters. Much of my recent work has involved transaction processing, digital identity, and event-driven services&mdash;designing them to behave predictably under retries, concurrency, and partial failure.</p>
-            <p>I have worked on financial platforms and digital-identity integrations where reliability and explicit failure handling matter. That includes transaction and ledger capabilities, account-creation workflows, identity harmonization channels, and services designed to behave predictably across retries and partial failures.</p>
+            <p>I&apos;ve contributed to financial platforms across digital wallets, payment integrations, customer onboarding, and identity harmonization. These projects required careful handling of transaction integrity, service boundaries, and failure recovery across distributed workflows.</p>
             <p>I work across TypeScript and Go, pairing pragmatic system design with strong delivery practices. I value clear domain boundaries, executable specifications, and maintainable services that give teams confidence as systems evolve.</p>
           </div>
         </section>
