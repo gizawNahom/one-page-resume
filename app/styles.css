@@ -55,8 +55,8 @@ a:focus-visible {
   margin: 0 auto;
   display: grid;
   grid-template-columns: minmax(300px, 0.78fr) minmax(0, 1fr);
-  gap: clamp(56px, 9vw, 144px);
-  padding: 0 clamp(28px, 8vw, 112px);
+  gap: clamp(72px, 12vw, 184px);
+  padding: 0 clamp(28px, 5vw, 72px);
 }
 
 .skip-link {
