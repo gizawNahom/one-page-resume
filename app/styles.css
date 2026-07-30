@@ -153,8 +153,15 @@ a:focus-visible {
 .section-nav a:hover,
 .section-nav a.active {
   color: var(--accent-strong);
-  font-weight: 600;
   opacity: 1;
+}
+
+.section-nav a:hover span {
+  width: 64px;
+}
+
+.section-nav a.active {
+  font-weight: 600;
 }
 
 .section-nav a.active span {
