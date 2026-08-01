@@ -32,9 +32,9 @@ const experiences: Experience[] = [
     role: "Senior Software Engineer",
     company: "InnoSphere Technologies",
     highlights: [
-      "Built a reusable Go idempotency SDK adopted by 5-6 microservices during the engagement, with atomic Redis/Lua state transitions, replay and conflict handling, and payload-hash validation.",
-      "Designed the SDK for a <=5 ms P95 overhead budget through in-process execution, a single Redis round trip, strict timeouts, and asynchronous observability paths.",
-      "Completed an event-driven identity-resolution service for identity creation, merge, and split using Go, Kafka, PostgreSQL, Debezium, transactional outbox, DDD, and hexagonal architecture.",
+      "Built and delivered a reusable Go idempotency SDK adopted by 5-6 microservices during my tenure, providing atomic Redis/Lua state transitions, replay and conflict handling, payload-hash validation, and configurable fail-open/fail-closed circuit-breaker behavior.",
+      "Built the SDK to a <=5 ms P95 overhead design budget, with a typical target below 4 ms, using in-process execution, a single Redis round trip, strict timeouts, and asynchronous event and observability paths.",
+      "Completed implementation of an event-driven identity-resolution service that constructs identities from linked records and supports identity creation, merging, and splitting, using Go, Kafka, PostgreSQL, Debezium, a transactional outbox, domain-driven design, and hexagonal architecture.",
       "Facilitated daily coordination for a four-engineer team and helped introduce executable Gherkin specifications, mutation testing, and continuous-delivery practices.",
     ],
     tags: ["Go", "Kafka", "PostgreSQL", "Redis", "Debezium"],
@@ -44,10 +44,12 @@ const experiences: Experience[] = [
     role: "Senior Software Engineer (Backend)",
     company: "Eagle Lion System Technology",
     highlights: [
-      "Owned TypeScript/Express transaction and ledger capabilities for a multi-tenant digital wallet, enforcing idempotent settlement, concurrency safety, balance integrity, and deterministic recovery across retries and partial failures.",
-      "Built production backend capabilities for Dashen SuperApp digital onboarding on a platform serving more than 1.5 million users.",
-      "Built a reusable TypeScript SDK for Fayda integration directly and through EthSwitch; it supported Dashen onboarding and harmonization channels, then Ethiopay onboarding in QA.",
-      "Implemented sender and receiver microservices with Temporal Saga orchestration for cross-tenant Send-to-Ethiopay transfers through EthSwitch, taking the feature into QA.",
+      "Owned TypeScript/Express transaction and ledger capabilities for a multi-tenant digital wallet, using idempotency and concurrency controls to avoid duplicate settlement and protect balance integrity when operations were retried or interrupted.",
+      "Built production backend capabilities for digital onboarding in Dashen Bank's mobile app, allowing customers to open bank accounts remotely. The SuperApp served more than 1.5 million users.",
+      "Built a reusable TypeScript SDK for Fayda, Ethiopia's national digital ID, supporting integration both directly and indirectly through a wrapper provided by EthSwitch, Ethiopia's national payment switch. It was used for Dashen onboarding and for linking existing customers to Fayda across mobile, web-link, and in-branch channels, and was later reused for Ethiopay onboarding in QA.",
+      "Delivered a separate integration with Ethio telecom for verifying customer SIM status and whether a SIM had been swapped.",
+      "Built sender and receiver microservices with Temporal Saga orchestration for wallet transfers across separate institutional deployments, routed through EthSwitch; the feature reached QA.",
+      "Built an internal TypeScript/Jest DSL for expressing readable, executable acceptance tests across cross-service transaction flows.",
     ],
     tags: ["TypeScript", "Express", "Temporal", "Jest", "EthSwitch"],
   },
@@ -104,30 +106,30 @@ const systems: System[] = [
   },
   {
     title: "Identity Resolution Service",
-    context: "Event-driven identity lifecycle management for creation, merge, and split operations.",
+    context: "An event-driven service that constructs identities from linked records and handles identity creation, merging, and splitting.",
     contribution: "Completed the service using domain-driven and hexagonal architecture, a transactional outbox, Kafka, PostgreSQL, and Debezium.",
     result: "A completed service implementation for the supported identity workflows.",
     tags: ["Go", "Kafka", "PostgreSQL", "Debezium"],
   },
   {
-    title: "Cross-Tenant Send-to-Ethiopay Transfer",
-    context: "A cross-tenant transfer flow through EthSwitch.",
-    contribution: "Implemented sender and receiver microservices with Temporal Saga orchestration.",
+    title: "Cross-Institution Wallet Transfers",
+    context: "A wallet-transfer flow between customers on separate institutional deployments, routed through EthSwitch.",
+    contribution: "Built sender and receiver microservices with Temporal Saga orchestration.",
     result: "Reached QA. It is not presented as a production system.",
     tags: ["TypeScript", "Temporal", "Microservices", "EthSwitch"],
   },
   {
     title: "Dashen Digital Onboarding",
-    context: "Digital onboarding capabilities for the Dashen SuperApp platform.",
+    context: "Backend capabilities that allow customers to open bank accounts through the Dashen SuperApp.",
     contribution: "Built production backend capabilities supporting account creation.",
-    result: "Supported a platform serving more than 1.5 million users.",
+    result: "Deployed within the Dashen SuperApp, which served more than 1.5 million users.",
     tags: ["TypeScript", "Express", "Digital Identity"],
   },
   {
     title: "Fayda Integration and Harmonization SDK",
-    context: "Reusable digital-identity integration across onboarding and harmonization channels.",
-    contribution: "Built a TypeScript SDK supporting Fayda integration directly and through EthSwitch.",
-    result: "Used by Dashen onboarding and mobile app, web-link, and in-branch harmonization channels; reused for Ethiopay onboarding in QA.",
+    context: "A reusable integration with Ethiopia's national digital ID for customer onboarding and linking existing customer records to Fayda.",
+    contribution: "Built a TypeScript SDK supporting direct Fayda integration and an indirect integration through a wrapper provided by EthSwitch.",
+    result: "Used for Dashen onboarding and across mobile, web-link, and in-branch customer-linking channels; later reused for Ethiopay onboarding in QA.",
     tags: ["TypeScript", "SDK Design", "Fayda", "EthSwitch"],
   },
   {
@@ -247,10 +249,10 @@ export function Portfolio() {
         <section id="about" className="about-section" aria-labelledby="about-title">
           <SectionHeading id="about-title">About</SectionHeading>
           <div className="prose">
-            <p>I&apos;m a backend engineer drawn to systems where correctness matters. Much of my recent work has involved transaction processing, digital identity, and event-driven services&mdash;designing them to behave predictably under retries, concurrency, and partial failure.</p>
-            <p>I&apos;ve contributed to financial platforms across digital wallets, payment integrations, customer onboarding, and identity harmonization. These projects required careful handling of transaction integrity, service boundaries, and failure recovery across distributed workflows.</p>
-            <p>I work across TypeScript and Go, pairing pragmatic system design with strong delivery practices. I value clear domain boundaries, executable specifications, and maintainable services that give teams confidence as systems evolve.</p>
-            <p>I have also contributed to the delivery practices around these systems, helping make expected behavior explicit and safe to change. That has included executable specifications, contract testing, mutation testing, and CI/CD practices that improve feedback before changes reach production.</p>
+            <p>I&apos;m a backend engineer focused on building reliable services and distributed systems.</p>
+            <p>My recent work has included digital-wallet backends, customer onboarding, and event-driven services. I&apos;ve worked on problems involving duplicate requests, concurrent updates, and interrupted operations where mistakes can affect balances or customer data.</p>
+            <p>I work primarily with TypeScript and Go. I value clear service boundaries, automated testing, and maintainable systems. My work has included executable acceptance tests, contract testing, mutation testing, and continuous-delivery practices.</p>
+            <p>I&apos;m also interested in how AI-assisted development can increase delivery speed without weakening engineering judgment. I use agents within a disciplined workflow built around clear requirements, small increments, reviewable changes, and continuous feedback.</p>
             <p>Outside of engineering, I spend time studying depth psychology, particularly the work of <JungWordAssociation />. I value inner work as a practice of reflection: noticing patterns, making meaning, and staying curious about complexity in people and in myself. I return to these ideas because they encourage a more deliberate relationship with work, relationships, and responsibility. I find that practice of reflection valuable, both in how I approach my work and how I move through life.</p>
           </div>
         </section>
