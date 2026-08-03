@@ -47,6 +47,7 @@ const experiences: Experience[] = [
       "Owned TypeScript/Express transaction and ledger capabilities for a multi-tenant digital wallet, using idempotency and concurrency controls to avoid duplicate settlement and protect balance integrity when operations were retried or interrupted.",
       "Built production backend capabilities for digital onboarding in Dashen Bank's mobile app, allowing customers to open bank accounts remotely. The SuperApp served more than 1.5 million users.",
       "Built a reusable TypeScript SDK for Fayda, Ethiopia's national digital ID, supporting integration both directly and indirectly through a wrapper provided by EthSwitch, Ethiopia's national payment switch. It was used for Dashen onboarding and for linking existing customers to Fayda across mobile, web-link, and in-branch channels, and was later reused for Ethiopay onboarding in QA.",
+      "Built a shared Kafka library for Ethiopay, a multi-tenant digital-wallet platform, standardizing schema registration, dead-letter handling, retry backoff, offset management, and observability across its microservices.",
       "Delivered a separate integration with Ethio telecom for verifying customer SIM status and whether a SIM had been swapped.",
       "Built sender and receiver microservices with Temporal Saga orchestration for wallet transfers across separate institutional deployments, routed through EthSwitch; the feature reached QA.",
       "Built an internal TypeScript/Jest DSL for expressing readable, executable acceptance tests across cross-service transaction flows.",
@@ -116,7 +117,7 @@ const systems: System[] = [
     context: "A wallet-transfer flow between customers on separate institutional deployments, routed through EthSwitch.",
     contribution: "Built sender and receiver microservices with Temporal Saga orchestration.",
     result: "Reached QA and had not yet been deployed to production.",
-    tags: ["TypeScript", "Temporal", "Microservices", "EthSwitch"],
+    tags: ["TypeScript", "Temporal", "Microservices"],
   },
   {
     title: "Dashen Digital Onboarding",
@@ -130,7 +131,7 @@ const systems: System[] = [
     context: "A reusable integration with Ethiopia's national digital ID for customer onboarding and linking existing customer records to Fayda.",
     contribution: "Built a TypeScript SDK supporting direct Fayda integration and an indirect integration through a wrapper provided by EthSwitch.",
     result: "Used for Dashen onboarding and across mobile, web-link, and in-branch customer-linking channels; later reused for Ethiopay onboarding in QA.",
-    tags: ["TypeScript", "SDK Design", "Fayda", "EthSwitch"],
+    tags: ["TypeScript", "SDK Design", "Fayda"],
   },
   {
     title: "ERP/POS Payment Integration Framework",
