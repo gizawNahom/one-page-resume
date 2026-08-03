@@ -51,7 +51,7 @@ const experiences: Experience[] = [
       "Built sender and receiver microservices with Temporal Saga orchestration for wallet transfers across separate institutional deployments, routed through EthSwitch; the feature reached QA.",
       "Built an internal TypeScript/Jest DSL for expressing readable, executable acceptance tests across cross-service transaction flows.",
     ],
-    tags: ["TypeScript", "Express", "Temporal", "Jest", "EthSwitch"],
+    tags: ["TypeScript", "Express", "Temporal", "Jest"],
   },
   {
     dates: "Apr 2022 - Jan 2025",
