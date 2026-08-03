@@ -49,7 +49,7 @@ const experiences: Experience[] = [
       "Built a reusable TypeScript SDK for Fayda, Ethiopia's national digital ID, supporting integration both directly and indirectly through a wrapper provided by EthSwitch, Ethiopia's national payment switch. It was used for Dashen onboarding and for linking existing customers to Fayda across mobile, web-link, and in-branch channels, and was later reused for Ethiopay onboarding in QA.",
       "Built a shared Kafka library for Ethiopay, a multi-tenant digital-wallet platform, standardizing schema registration, dead-letter handling, retry backoff, offset management, and observability across its microservices.",
       "Delivered a separate integration with Ethio telecom for verifying customer SIM status and whether a SIM had been swapped.",
-      "Built sender and receiver microservices with Temporal Saga orchestration for wallet transfers across separate institutional deployments, routed through EthSwitch; the feature reached QA.",
+      "Implemented the Temporal Saga orchestration coordinating sender and receiver services for cross-institution wallet transfers through EthSwitch; the feature reached QA.",
       "Built an internal TypeScript/Jest DSL for expressing readable, executable acceptance tests across cross-service transaction flows.",
     ],
     tags: ["TypeScript", "Express", "Temporal", "Jest"],
