@@ -1,13 +1,13 @@
 :root {
-  --canvas: #111817;
-  --surface: #17211f;
-  --surface-raised: #1c2926;
-  --line: #32423d;
-  --text: #e7ede9;
-  --muted: #aebdb7;
-  --accent: #67c7a3;
-  --accent-strong: #8cdbbc;
-  --focus: #a5e8cf;
+  --canvas: #0f172a;
+  --surface: rgba(30, 41, 59, .5);
+  --surface-raised: #1e293b;
+  --line: #334155;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --accent: #2dd4bf;
+  --accent-strong: #5eead4;
+  --focus: #5eead4;
   --spotlight-x: 50vw;
   --spotlight-y: 28vh;
 }
@@ -35,11 +35,16 @@ body::before {
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background: radial-gradient(540px circle at var(--spotlight-x) var(--spotlight-y), rgba(103, 199, 163, .09), transparent 68%);
+  background: radial-gradient(600px circle at var(--spotlight-x) var(--spotlight-y), rgba(29, 78, 216, .15), transparent 80%);
 }
 
 a {
   color: inherit;
+}
+
+::selection {
+  background: #5eead4;
+  color: #134e4a;
 }
 
 a:focus-visible {
@@ -66,7 +71,7 @@ a:focus-visible {
   z-index: 10;
   transform: translateY(-180%);
   background: var(--accent);
-  color: #1d1812;
+  color: #134e4a;
   padding: 8px 12px;
   font-family: var(--font-mono), monospace;
   font-size: 13px;
@@ -152,7 +157,7 @@ a:focus-visible {
 
 .section-nav a:hover,
 .section-nav a.active {
-  color: var(--accent-strong);
+  color: var(--text);
   opacity: 1;
 }
 
@@ -279,7 +284,7 @@ section {
   border: 2px solid #f7f2e7;
   border-radius: 50%;
   background: #d95143;
-  box-shadow: 0 0 0 2px rgba(247, 242, 231, .18), 0 7px 18px rgba(4, 10, 8, .36);
+  box-shadow: 0 0 0 2px rgba(247, 242, 231, .18), 0 7px 18px rgba(2, 6, 23, .36);
 }
 
 .jung-mandala::before,
@@ -363,7 +368,7 @@ section {
 
   40% {
     color: var(--accent-strong);
-    text-shadow: 3px 0 0 rgba(103, 199, 163, .24);
+    text-shadow: 3px 0 0 rgba(94, 234, 212, .24);
     transform: translateY(-2px) scale(1.035);
   }
 
@@ -445,7 +450,7 @@ h3 span {
 }
 
 h3 strong {
-  color: var(--accent-strong);
+  color: var(--text);
   font-weight: 700;
 }
 
@@ -484,9 +489,9 @@ h3 strong {
 
 .tags li {
   padding: 3px 8px;
-  border: 1px solid var(--line);
-  color: #c7d4ce;
-  background: rgba(28, 41, 38, .7);
+  border: 1px solid transparent;
+  color: var(--accent-strong);
+  background: rgba(45, 212, 191, .1);
   font: 500 11px/1.45 "SFMono-Regular", Consolas, "Liberation Mono", monospace;
 }
 
@@ -502,13 +507,17 @@ h3 strong {
   transition: transform .18s ease, border-color .18s ease, background .18s ease;
 }
 
+.system-entry h3 {
+  transition: color .18s ease;
+}
+
 .system-entry:hover {
   transform: translateY(-3px);
-  border-color: #597169;
+  border-color: #475569;
   background: var(--surface-raised);
 }
 
-.system-entry h3 {
+.system-entry:hover h3 {
   color: var(--accent-strong);
 }
 
@@ -558,7 +567,7 @@ h3 strong {
 
 .skills-grid dt {
   margin-bottom: 7px;
-  color: var(--accent-strong);
+  color: var(--text);
 }
 
 .skills-grid dd {
@@ -598,8 +607,13 @@ footer p {
 }
 
 .case-study-page .back-link {
-  color: var(--accent-strong);
+  color: var(--text);
   font: 500 13px/1.5 "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  transition: color .18s ease;
+}
+
+.case-study-page .back-link:hover {
+  color: var(--accent-strong);
 }
 
 .case-study-page h1 {
@@ -671,10 +685,10 @@ footer p {
     display: block;
     margin: 0 -42px 32px;
     padding: 17px 42px;
-    background: rgba(17, 24, 23, .74);
-    box-shadow: 0 10px 24px rgba(4, 10, 8, .14);
+    background: rgba(15, 23, 42, .75);
+    box-shadow: 0 10px 24px rgba(2, 6, 23, .14);
     backdrop-filter: blur(14px);
-    color: var(--accent-strong);
+    color: var(--text);
     font: 500 16px/1.35 "SFMono-Regular", Consolas, "Liberation Mono", monospace;
     letter-spacing: .04em;
     text-transform: uppercase;
