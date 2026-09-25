@@ -254,11 +254,9 @@ export function Portfolio() {
         <section id="about" className="about-section" aria-labelledby="about-title">
           <SectionHeading id="about-title">About</SectionHeading>
           <div className="prose">
-            <p>I&apos;m a backend engineer focused on building reliable services and distributed systems.</p>
-            <p>My recent work has included digital-wallet backends, customer onboarding, and event-driven services. I&apos;ve worked on problems involving duplicate requests, concurrent updates, downstream backpressure, and interrupted operations where mistakes can affect balances or customer data.</p>
-            <p>I work primarily with TypeScript and Go. I value clear service boundaries, domain-driven design, automated testing, and maintainable systems. My work has included executable acceptance tests, contract testing, mutation testing, and continuous-delivery practices.</p>
-            <p>I&apos;m also interested in how AI-assisted development can increase delivery speed without weakening engineering judgment. I use agents within a disciplined workflow built around clear requirements, small increments, reviewable changes, and continuous feedback.</p>
-            <p>Outside of engineering, I spend time studying depth psychology, particularly the work of <JungWordAssociation />. I value inner work as a practice of reflection: noticing patterns, making meaning, and staying curious about complexity in people and in myself. I return to these ideas because they encourage a more deliberate relationship with work, relationships, and responsibility.</p>
+            <p>Hi there! I&apos;m Nahom, a backend engineer. I care about building systems that are reliable, maintainable, and observable, so you can trust them, change them, and see what&apos;s happening inside them. I&apos;m always looking for ways to deliver better software, faster.</p>
+            <p>Currently, I&apos;m building <strong>Ledger Ops</strong>, a ledger that works out of the box for anyone who needs one in their app. It grows out of my work on digital wallets and bank onboarding, where keeping balances correct mattered most. I use AI throughout the development lifecycle, backed by layers of feedback that keep quality high as speed goes up.</p>
+            <p>Outside of engineering, I study depth psychology, especially the work of <JungWordAssociation />. I treat inner work as a practice of noticing patterns and staying curious about complexity in people and in myself.</p>
           </div>
         </section>
 

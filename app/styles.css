@@ -210,12 +210,6 @@ section {
   padding: 0 0 112px;
 }
 
-@media (min-width: 1101px) {
-  .about-section {
-    min-height: calc(100svh - 48px);
-  }
-}
-
 .section-heading {
   position: absolute;
   width: 1px;
@@ -236,6 +230,11 @@ section {
 
 .prose p {
   margin: 0 0 20px;
+}
+
+.prose strong {
+  color: var(--text);
+  font-weight: 600;
 }
 
 .jung-name {
