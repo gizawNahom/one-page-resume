@@ -247,9 +247,16 @@ section {
   margin: 0 0 20px;
 }
 
-.prose strong {
+.prose a {
   color: var(--text);
   font-weight: 600;
+  text-decoration: none;
+  transition: color .18s ease;
+}
+
+.prose a:hover,
+.prose a:focus-visible {
+  color: var(--accent-strong);
 }
 
 .jung-name {
@@ -440,17 +447,17 @@ section {
   gap: 44px;
 }
 
-.experience-entry {
+.entry {
   display: grid;
   grid-template-columns: 152px minmax(0, 1fr);
   gap: 28px;
 }
 
-.experience-entry h3 {
+.entry h3 {
   font-size: 16px;
 }
 
-.experience-entry .eyebrow {
+.entry .eyebrow {
   padding-top: 5px;
   color: var(--muted);
   font-size: 11px;
@@ -462,16 +469,16 @@ h3 {
   line-height: 1.45;
 }
 
-.experience-entry {
+.entry {
   position: relative;
   transition: opacity .18s ease;
 }
 
-.experience-entry>* {
+.entry>* {
   z-index: 1;
 }
 
-.experience-entry::before {
+.entry::before {
   content: "";
   position: absolute;
   inset: -16px -24px;
@@ -503,20 +510,20 @@ h3 {
     display: block;
   }
 
-  .experience-entry:hover::before {
+  .entry:hover::before {
     background: var(--surface);
     box-shadow: inset 0 1px 0 0 rgba(148, 163, 184, .1), 0 10px 15px -3px rgba(2, 6, 23, .25);
   }
 
-  .timeline:has(.experience-entry:hover) .experience-entry:not(:hover) {
+  .timeline:has(.entry:hover) .entry:not(:hover) {
     opacity: .5;
   }
 
-  .experience-entry.is-linked:hover .entry-link {
+  .entry.is-linked:hover .entry-link {
     color: var(--accent-strong);
   }
 
-  .experience-entry.is-linked:hover .entry-link .external-mark {
+  .entry.is-linked:hover .entry-link .external-mark {
     transform: translate(4px, -4px);
   }
 }
@@ -527,6 +534,20 @@ h3 {
 
 .entry-link:focus-visible .external-mark {
   transform: translate(4px, -4px);
+}
+
+.project-thumb {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 4px;
+  border: 2px solid rgba(226, 232, 240, .1);
+  border-radius: 4px;
+  transition: border-color .18s ease;
+}
+
+.project-entry:hover .project-thumb {
+  border-color: rgba(226, 232, 240, .3);
 }
 
 .entry-summary {
@@ -752,9 +773,15 @@ footer p {
     text-transform: uppercase;
   }
 
-  .experience-entry {
+  .entry {
     grid-template-columns: 1fr;
     gap: 7px;
+  }
+
+  .project-thumb {
+    order: 2;
+    max-width: 200px;
+    margin-top: 8px;
   }
 }
 

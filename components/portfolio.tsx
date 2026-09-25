@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { JungWordAssociation } from "./jung-word-association";
 
@@ -9,6 +10,15 @@ type Experience = {
   company: string;
   website?: string;
   summary: string;
+  tags: string[];
+};
+
+type Project = {
+  title: string;
+  href: string;
+  description: string;
+  image: string;
+  imageAlt: string;
   tags: string[];
 };
 
@@ -26,6 +36,7 @@ const showSystems = false;
 const navItems = ([
   ["about", "About"],
   ["experience", "Experience"],
+  ["projects", "Projects"],
   ["systems", "Selected Systems"],
   ["skills", "Skills"],
 ] as const).filter(([id]) => showSystems || id !== "systems");
@@ -81,6 +92,18 @@ const experiences: Experience[] = [
     summary:
       "Developed and unit-tested Vue.js web applications, working with the team across implementation, debugging, and delivery.",
     tags: ["Vue.js", "JavaScript", "Unit Testing"],
+  },
+];
+
+const projects: Project[] = [
+  {
+    title: "LedgerOps",
+    href: "https://github.com/gizawNahom/ledgerops",
+    description:
+      "A double-entry ledger service that moves value between accounts correctly, and can prove it did. Built for wallets, marketplaces, and loyalty systems that need balances without building a ledger themselves.",
+    image: "/imgs/ledgerops.svg",
+    imageAlt: "A LedgerOps transfer request: POST /transfers with an Idempotency-Key header, moving 50.00 from alice to bob.",
+    tags: ["Go", "PostgreSQL", "TypeScript", "Grafana"],
   },
 ];
 
@@ -246,7 +269,7 @@ export function Portfolio() {
           <SectionHeading id="about-title">About</SectionHeading>
           <div className="prose">
             <p>Hi there! I&apos;m Nahom, a backend engineer. I care about building systems that are reliable, maintainable, and observable, so you can trust them, change them, and see what&apos;s happening inside them. I&apos;m always looking for ways to deliver better software, faster.</p>
-            <p>Currently, I&apos;m building <strong>Ledger Ops</strong>, a ledger that works out of the box for anyone who needs one in their app. It grows out of my work on digital wallets and bank onboarding, where keeping balances correct mattered most. I use AI throughout the development lifecycle, backed by layers of feedback that keep quality high as speed goes up.</p>
+            <p>Currently, I&apos;m building <a href="https://github.com/gizawNahom/ledgerops" target="_blank" rel="noopener noreferrer">LedgerOps<span className="sr-only"> (opens in a new tab)</span></a>, a ledger that works out of the box for anyone who needs one in their app. It grows out of my work on digital wallets and bank onboarding, where keeping balances correct mattered most. I use AI throughout the development lifecycle, backed by layers of feedback that keep quality high as speed goes up.</p>
             <p>Outside of engineering, I study depth psychology, especially the work of <JungWordAssociation />. I treat inner work as a practice of noticing patterns and staying curious about complexity in people and in myself.</p>
           </div>
         </section>
@@ -255,6 +278,13 @@ export function Portfolio() {
           <SectionHeading id="experience-title">Experience</SectionHeading>
           <div className="timeline">
             {experiences.map((experience) => <ExperienceEntry key={`${experience.company}-${experience.dates}`} {...experience} />)}
+          </div>
+        </section>
+
+        <section id="projects" aria-labelledby="projects-title">
+          <SectionHeading id="projects-title">Projects</SectionHeading>
+          <div className="timeline">
+            {projects.map((project) => <ProjectEntry key={project.title} {...project} />)}
           </div>
         </section>
 
@@ -293,7 +323,7 @@ function TagList({ tags }: { tags: string[] }) {
 function ExperienceEntry({ dates, role, company, website, summary, tags }: Experience) {
   const title = <>{role} <span aria-hidden="true">&middot;</span><span className="sr-only"> at</span> <span className="entry-company">{company}</span></>;
 
-  return <article className={website ? "experience-entry is-linked" : "experience-entry"}>
+  return <article className={website ? "entry is-linked" : "entry"}>
     <p className="eyebrow">{dates}</p>
     <div>
       <h3>
@@ -305,6 +335,22 @@ function ExperienceEntry({ dates, role, company, website, summary, tags }: Exper
           : title}
       </h3>
       <p className="entry-summary">{summary}</p>
+      <TagList tags={tags} />
+    </div>
+  </article>;
+}
+
+function ProjectEntry({ title, href, description, image, imageAlt, tags }: Project) {
+  return <article className="entry project-entry is-linked">
+    <Image className="project-thumb" src={image} alt={imageAlt} width={304} height={200} />
+    <div>
+      <h3>
+        <a className="entry-link" href={href} target="_blank" rel="noopener noreferrer" aria-label={`${title} (opens in a new tab)`}>
+          <span className="entry-link-area" aria-hidden="true" />
+          {title}<span className="external-mark" aria-hidden="true">&#8599;</span>
+        </a>
+      </h3>
+      <p className="entry-summary">{description}</p>
       <TagList tags={tags} />
     </div>
   </article>;
