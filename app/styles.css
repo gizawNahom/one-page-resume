@@ -90,7 +90,7 @@ a:focus-visible {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  padding: 96px 0 40px;
+  padding: 96px 0;
 }
 
 .identity {
@@ -177,8 +177,8 @@ a:focus-visible {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 20px;
-  margin: 0;
+  gap: 24px;
+  margin: auto 0 0;
   padding: 0;
   list-style: none;
 }
