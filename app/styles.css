@@ -225,6 +225,12 @@ section {
   padding: 0 0 112px;
 }
 
+@media (min-width: 1101px) {
+  section {
+    padding-bottom: 144px;
+  }
+}
+
 .section-heading {
   position: absolute;
   width: 1px;
