@@ -105,6 +105,15 @@ const projects: Project[] = [
     imageAlt: "A LedgerOps transfer request: POST /transfers with an Idempotency-Key header, moving 50.00 from alice to bob.",
     tags: ["Go", "PostgreSQL", "TypeScript", "Grafana"],
   },
+  {
+    title: "AI Incident Commander",
+    href: "https://github.com/gizawNahom/ai-incident-commander",
+    description:
+      "An incident-management workspace for a simulated distributed system. Alerts correlate into incidents, an AI investigator proposes a fix grounded in captured evidence, and only a human Incident Commander can approve it.",
+    image: "/imgs/ai-incident-commander.png",
+    imageAlt: "Service topology at the moment of an incident, with the failing path from Checkout Service to Payment Service highlighted.",
+    tags: ["TypeScript", "Node.js", "Server-Sent Events", "Playwright"],
+  },
 ];
 
 const systems: System[] = [
