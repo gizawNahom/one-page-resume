@@ -4,7 +4,7 @@ test("renders the private-contact senior backend portfolio", async ({ page }) =>
   await page.goto("/");
 
   await expect(page.getByRole("heading", { name: "Nahom Gizaw" })).toBeVisible();
-  await expect(page.locator("#systems")).toBeAttached();
+  await expect(page.locator("#experience")).toBeAttached();
   await expect(page.getByText("gizawnahom5@gmail.com")).toHaveCount(0);
   await expect(page.getByText("Download Résumé")).toHaveCount(0);
   await expect(page.getByRole("link", { name: /GitHub/ }).first()).toHaveAttribute("href", "https://github.com/gizawNahom");

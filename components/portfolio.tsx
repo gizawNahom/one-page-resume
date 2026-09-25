@@ -20,12 +20,15 @@ type System = {
   tags: string[];
 };
 
-const navItems = [
+// Hidden until there are new projects to show; set to true to bring the section back.
+const showSystems = false;
+
+const navItems = ([
   ["about", "About"],
   ["experience", "Experience"],
   ["systems", "Selected Systems"],
   ["skills", "Skills"],
-] as const;
+] as const).filter(([id]) => showSystems || id !== "systems");
 
 const experiences: Experience[] = [
   {
@@ -255,12 +258,14 @@ export function Portfolio() {
           </div>
         </section>
 
-        <section id="systems" aria-labelledby="systems-title">
-          <SectionHeading id="systems-title">Selected Systems</SectionHeading>
-          <div className="systems-grid">
-            {systems.map((system) => <SystemEntry key={system.title} {...system} />)}
-          </div>
-        </section>
+        {showSystems && (
+          <section id="systems" aria-labelledby="systems-title">
+            <SectionHeading id="systems-title">Selected Systems</SectionHeading>
+            <div className="systems-grid">
+              {systems.map((system) => <SystemEntry key={system.title} {...system} />)}
+            </div>
+          </section>
+        )}
 
         <section id="skills" aria-labelledby="skills-title">
           <SectionHeading id="skills-title">Technical Skills</SectionHeading>
