@@ -442,8 +442,12 @@ section {
 
 .experience-entry {
   display: grid;
-  grid-template-columns: 132px minmax(0, 1fr);
+  grid-template-columns: 152px minmax(0, 1fr);
   gap: 28px;
+}
+
+.experience-entry h3 {
+  font-size: 16px;
 }
 
 .experience-entry .eyebrow {
@@ -525,28 +529,11 @@ h3 {
   transform: translate(4px, -4px);
 }
 
-.highlights {
-  margin: 14px 0 18px;
-  padding: 0;
-  list-style: none;
+.entry-summary {
+  margin: 10px 0 16px;
   color: var(--muted);
-}
-
-.highlights li {
-  position: relative;
-  padding-left: 18px;
-  margin: 0 0 8px;
-}
-
-.highlights li::before {
-  content: "";
-  position: absolute;
-  top: .73em;
-  left: 0;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--accent);
+  font-size: 14px;
+  line-height: 1.6;
 }
 
 .tags {

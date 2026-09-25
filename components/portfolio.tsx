@@ -8,7 +8,7 @@ type Experience = {
   role: string;
   company: string;
   website?: string;
-  highlights: string[];
+  summary: string;
   tags: string[];
 };
 
@@ -29,74 +29,54 @@ const navItems = [
 
 const experiences: Experience[] = [
   {
-    dates: "May 2026 - Jun 2026",
+    dates: "May 2026 – Jun 2026",
     role: "Senior Software Engineer",
     company: "InnoSphere Technologies",
-    highlights: [
-      "Built and delivered a reusable Go idempotency SDK adopted by 5-6 microservices during my tenure, providing atomic Redis/Lua state transitions, replay and conflict handling, payload-hash validation, and configurable fail-open/fail-closed circuit-breaker behavior.",
-      "Built the SDK to a <=5 ms P95 overhead design budget, with a typical target below 4 ms, using in-process execution, a single Redis round trip, strict timeouts, and asynchronous event and observability paths.",
-      "Completed implementation of an event-driven identity-resolution service that constructs identities from linked records and supports identity creation, merging, and splitting, using Go, Kafka, PostgreSQL, Debezium, a transactional outbox, domain-driven design, and hexagonal architecture.",
-      "Facilitated daily coordination for a four-engineer team and helped the team adopt ATDD using executable Gherkin specifications, mutation testing, and continuous-delivery practices.",
-    ],
+    summary:
+      "Built a Go idempotency SDK adopted by 5–6 microservices, designed to a 5 ms P95 latency budget while safely handling replays, conflicts, and Redis failures. Also completed an event-driven identity-resolution service that creates, merges, and splits identities, and helped a four-engineer team adopt acceptance-test-driven development.",
     tags: ["Go", "Kafka", "PostgreSQL", "Redis", "Debezium"],
   },
   {
-    dates: "Feb 2025 - May 2026",
+    dates: "Feb 2025 – May 2026",
     role: "Senior Software Engineer (Backend)",
     company: "Eagle Lion System Technology",
     website: "https://www.eaglelionsystems.com/",
-    highlights: [
-      "Owned TypeScript/Express transaction and ledger capabilities for a multi-tenant digital wallet, using idempotency and concurrency controls to avoid duplicate settlement and protect balance integrity when operations were retried or interrupted.",
-      "Built production backend capabilities for digital onboarding in Dashen Bank's mobile app, allowing customers to open bank accounts remotely. The SuperApp served more than 1.5 million users.",
-      "Built a reusable TypeScript SDK for Fayda, Ethiopia's national digital ID, supporting integration both directly and indirectly through a wrapper provided by EthSwitch, Ethiopia's national payment switch. It was used for Dashen onboarding and for linking existing customers to Fayda across mobile, web-link, and in-branch channels, and was later reused for Ethiopay onboarding in QA.",
-      "Built a shared Kafka library for Ethiopay, a multi-tenant digital-wallet platform, standardizing schema registration, dead-letter handling, retry backoff, offset management, and observability across its microservices.",
-      "Delivered a separate integration with Ethio telecom for verifying customer SIM status and whether a SIM had been swapped.",
-      "Implemented the Temporal Saga orchestration coordinating sender and receiver services for cross-institution wallet transfers through EthSwitch; the feature reached QA.",
-      "Built an internal TypeScript/Jest DSL for expressing readable, executable acceptance tests across cross-service transaction flows.",
-    ],
+    summary:
+      "Owned transaction and ledger services for Ethiopay, a multi-tenant digital wallet, and built the backend for remote account opening in Dashen Bank's SuperApp, used by more than 1.5 million people. Also built a reusable SDK for Fayda, Ethiopia's national digital ID, and a shared Kafka library that standardized messaging across services.",
     tags: ["TypeScript", "Express", "Temporal", "Jest"],
   },
   {
-    dates: "Apr 2022 - Jan 2025",
+    dates: "Apr 2022 – Jan 2025",
     role: "Career Break & Independent Engineering",
     company: "Independent",
-    highlights: [
-      "Took a planned personal and family career break while developing depth in C#, TDD, clean architecture, contract testing, and full-stack delivery.",
-      "Built an open-source URL Shortener with click analytics using TypeScript, Next.js, Express, MongoDB, ports/adapters, Jest, Cypress, Artillery, and OWASP ZAP through CircleCI.",
-      "Built a Twitter Clone with TypeScript, Next.js, Apollo GraphQL, Express, Socket.IO, Prisma/PostgreSQL, Nx, Jest, Pact, and browser end-to-end testing.",
-    ],
+    summary:
+      "Took a planned career break for personal and family reasons while deepening skills in C#, TDD, clean architecture, and contract testing. Built open-source projects along the way, including a URL shortener with click analytics and a Twitter clone with real-time updates and end-to-end tests.",
     tags: ["Next.js", "Express", "MongoDB", "PostgreSQL", "Pact"],
   },
   {
-    dates: "May 2021 - Mar 2022",
+    dates: "May 2021 – Mar 2022",
     role: "Programmer",
     company: "CNET Software Technologies",
     website: "https://cneterp.com/",
-    highlights: [
-      "Created a reusable C#/.NET payment-integration framework with a Template Method extension model for desktop and web ERP/POS applications.",
-      "Integrated Amole and Telebirr payment options into production ERP/POS deployments used across thousands of businesses.",
-      "Delivered loyalty-card and device integrations, a provider-agnostic movie-search module, and a local-network API for hospital billing-data exchange.",
-    ],
+    summary:
+      "Created a reusable C#/.NET payment-integration framework for desktop and web ERP/POS applications, and integrated Amole and Telebirr payments into deployments used by thousands of businesses. Also delivered loyalty-card and device integrations and a local-network API for exchanging hospital billing data.",
     tags: ["C#", ".NET Core", "SQL Server", "nopCommerce"],
   },
   {
-    dates: "Feb 2021 - Apr 2021",
+    dates: "Feb 2021 – Apr 2021",
     role: "Tech Lead",
     company: "Zeraf Tech",
-    highlights: [
-      "Led a 5-6 person team during early product discovery for Giraffe Notes, a blockchain-enabled services marketplace with credit-instrument and secondary-market concepts.",
-      "Built the landing page, mapped user stories, researched stacks and workflows, interviewed developers, and contributed to architecture discussions.",
-    ],
+    summary:
+      "Led a 5–6 person team through early product discovery for Giraffe Notes, a blockchain-enabled services marketplace. Built the landing page, mapped user stories, interviewed developers, and contributed to architecture discussions.",
     tags: ["Product Discovery", "Architecture", "Team Leadership"],
   },
   {
-    dates: "Mar 2019 - Sep 2019",
+    dates: "Mar 2019 – Sep 2019",
     role: "Software Engineering Intern",
     company: "Minab",
     website: "https://www.minabtech.com/",
-    highlights: [
-      "Developed and unit-tested Vue.js web applications while collaborating on implementation, debugging, and delivery across the software lifecycle.",
-    ],
+    summary:
+      "Developed and unit-tested Vue.js web applications, working with the team across implementation, debugging, and delivery.",
     tags: ["Vue.js", "JavaScript", "Unit Testing"],
   },
 ];
@@ -305,7 +285,7 @@ function TagList({ tags }: { tags: string[] }) {
   return <ul className="tags">{tags.map((tag) => <li key={tag}>{tag}</li>)}</ul>;
 }
 
-function ExperienceEntry({ dates, role, company, website, highlights, tags }: Experience) {
+function ExperienceEntry({ dates, role, company, website, summary, tags }: Experience) {
   const title = <>{role} <span aria-hidden="true">&middot;</span><span className="sr-only"> at</span> <span className="entry-company">{company}</span></>;
 
   return <article className={website ? "experience-entry is-linked" : "experience-entry"}>
@@ -319,7 +299,7 @@ function ExperienceEntry({ dates, role, company, website, highlights, tags }: Ex
           </a>
           : title}
       </h3>
-      <ul className="highlights">{highlights.map((highlight) => <li key={highlight}>{highlight}</li>)}</ul>
+      <p className="entry-summary">{summary}</p>
       <TagList tags={tags} />
     </div>
   </article>;
