@@ -7,6 +7,7 @@ type Experience = {
   dates: string;
   role: string;
   company: string;
+  website?: string;
   highlights: string[];
   tags: string[];
 };
@@ -43,6 +44,7 @@ const experiences: Experience[] = [
     dates: "Feb 2025 - May 2026",
     role: "Senior Software Engineer (Backend)",
     company: "Eagle Lion System Technology",
+    website: "https://www.eaglelionsystems.com/",
     highlights: [
       "Owned TypeScript/Express transaction and ledger capabilities for a multi-tenant digital wallet, using idempotency and concurrency controls to avoid duplicate settlement and protect balance integrity when operations were retried or interrupted.",
       "Built production backend capabilities for digital onboarding in Dashen Bank's mobile app, allowing customers to open bank accounts remotely. The SuperApp served more than 1.5 million users.",
@@ -69,6 +71,7 @@ const experiences: Experience[] = [
     dates: "May 2021 - Mar 2022",
     role: "Programmer",
     company: "CNET Software Technologies",
+    website: "https://cneterp.com/",
     highlights: [
       "Created a reusable C#/.NET payment-integration framework with a Template Method extension model for desktop and web ERP/POS applications.",
       "Integrated Amole and Telebirr payment options into production ERP/POS deployments used across thousands of businesses.",
@@ -90,6 +93,7 @@ const experiences: Experience[] = [
     dates: "Mar 2019 - Sep 2019",
     role: "Software Engineering Intern",
     company: "Minab",
+    website: "https://www.minabtech.com/",
     highlights: [
       "Developed and unit-tested Vue.js web applications while collaborating on implementation, debugging, and delivery across the software lifecycle.",
     ],
@@ -295,11 +299,20 @@ function TagList({ tags }: { tags: string[] }) {
   return <ul className="tags">{tags.map((tag) => <li key={tag}>{tag}</li>)}</ul>;
 }
 
-function ExperienceEntry({ dates, role, company, highlights, tags }: Experience) {
-  return <article className="experience-entry">
+function ExperienceEntry({ dates, role, company, website, highlights, tags }: Experience) {
+  const title = <>{role} <span aria-hidden="true">&middot;</span><span className="sr-only"> at</span> <span className="entry-company">{company}</span></>;
+
+  return <article className={website ? "experience-entry is-linked" : "experience-entry"}>
     <p className="eyebrow">{dates}</p>
     <div>
-      <h3>{role} <span aria-hidden="true">at</span> <strong>{company}</strong></h3>
+      <h3>
+        {website
+          ? <a className="entry-link" href={website} target="_blank" rel="noopener noreferrer" aria-label={`${role} at ${company} (opens in a new tab)`}>
+            <span className="entry-link-area" aria-hidden="true" />
+            {title}<span className="external-mark" aria-hidden="true">&#8599;</span>
+          </a>
+          : title}
+      </h3>
       <ul className="highlights">{highlights.map((highlight) => <li key={highlight}>{highlight}</li>)}</ul>
       <TagList tags={tags} />
     </div>
