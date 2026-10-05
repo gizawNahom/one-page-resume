@@ -1,8 +1,11 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { JungWordAssociation } from "./jung-word-association";
+import { Arrow } from "./icons";
+import { Spotlight } from "./spotlight";
 
 type Experience = {
   dates: string;
@@ -196,16 +199,6 @@ export function Portfolio() {
     navItems.find(([id]) => id === activeSection)?.[1] ?? "About";
 
   useEffect(() => {
-    const updateSpotlight = (event: PointerEvent) => {
-      document.documentElement.style.setProperty("--spotlight-x", `${event.clientX}px`);
-      document.documentElement.style.setProperty("--spotlight-y", `${event.clientY}px`);
-    };
-
-    window.addEventListener("pointermove", updateSpotlight, { passive: true });
-    return () => window.removeEventListener("pointermove", updateSpotlight);
-  }, []);
-
-  useEffect(() => {
     const sections = navItems
       .map(([id]) => document.getElementById(id))
       .filter((section): section is HTMLElement => Boolean(section));
@@ -252,6 +245,7 @@ export function Portfolio() {
 
   return (
     <main className="site-shell">
+      <Spotlight />
       <a className="skip-link" href="#about">Skip to content</a>
       <aside className="identity-column" aria-label="Portfolio introduction">
         <div>
@@ -304,6 +298,7 @@ export function Portfolio() {
           <div className="timeline">
             {projects.map((project) => <ProjectEntry key={project.title} {...project} />)}
           </div>
+          <Link className="archive-cta" href="/archive">View Full Project Archive<Arrow direction="right" className="archive-cta-arrow" /></Link>
         </section>
 
         {showSystems && (
@@ -348,7 +343,7 @@ function ExperienceEntry({ dates, role, company, website, summary, tags }: Exper
         {website
           ? <a className="entry-link" href={website} target="_blank" rel="noopener noreferrer" aria-label={`${role} at ${company} (opens in a new tab)`}>
             <span className="entry-link-area" aria-hidden="true" />
-            {title}<span className="external-mark" aria-hidden="true">&#8599;</span>
+            {title}<Arrow direction="up-right" className="external-mark" />
           </a>
           : title}
       </h3>
@@ -365,7 +360,7 @@ function ProjectEntry({ title, href, description, image, imageAlt, tags }: Proje
       <h3>
         <a className="entry-link" href={href} target="_blank" rel="noopener noreferrer" aria-label={`${title} (opens in a new tab)`}>
           <span className="entry-link-area" aria-hidden="true" />
-          {title}<span className="external-mark" aria-hidden="true">&#8599;</span>
+          {title}<Arrow direction="up-right" className="external-mark" />
         </a>
       </h3>
       <p className="entry-summary">{description}</p>
