@@ -18,6 +18,12 @@ type ArchivedProject = {
 const archivedProjects: ArchivedProject[] = [
   {
     year: 2026,
+    title: "Bookmark CLI",
+    tags: ["Go", "SQLite", "Cobra"],
+    repo: "https://github.com/gizawNahom/bookmark-cli",
+  },
+  {
+    year: 2026,
     title: "Gherkin Glow",
     tags: ["JavaScript", "VS Code API"],
     repo: "https://github.com/gizawNahom/gherkin-glow",
