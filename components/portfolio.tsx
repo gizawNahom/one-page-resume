@@ -106,6 +106,15 @@ const projects: Project[] = [
     tags: ["Go", "PostgreSQL", "TypeScript", "Grafana"],
   },
   {
+    title: "feed-fanout",
+    href: "https://github.com/gizawNahom/feed-fanout",
+    description:
+      "A news feed backend that delivers each post to every follower's feed through Kafka, with a transactional outbox and idempotent fanout so no post is lost or duplicated. Built and measured like production: an API gateway, load tests, tested backups, SLOs and runbooks.",
+    image: "/imgs/feed-fanout.svg",
+    imageAlt: "A post from @nahom goes through Kafka to a fanout worker, which writes it into the feeds of bob, sara, abel, and 19,997 more followers.",
+    tags: ["Python", "Kafka", "PostgreSQL", "Kong"],
+  },
+  {
     title: "AI Incident Commander",
     href: "https://github.com/gizawNahom/ai-incident-commander",
     description:
