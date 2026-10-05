@@ -40,6 +40,12 @@ const archivedProjects: ArchivedProject[] = [
     tags: ["TypeScript", "Next.js", "Express", "MongoDB", "Pino"],
     repo: "https://github.com/gizawNahom/url-shortener",
   },
+  {
+    year: 2022,
+    title: "Minesweeper",
+    tags: ["JavaScript", "Jest"],
+    repo: "https://github.com/gizawNahom/mine-sweeper",
+  },
 ];
 
 function ProjectLink({ project }: { project: ArchivedProject }) {
