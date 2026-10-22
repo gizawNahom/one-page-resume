@@ -118,6 +118,15 @@ const projects: Project[] = [
     tags: ["Python", "Kafka", "PostgreSQL", "Kong"],
   },
   {
+    title: "AppWall",
+    href: "https://github.com/gizawNahom/appwall",
+    description:
+      "A well-tested, open-source Android firewall that cuts off internet access for any app you choose, no root required, and shows you where blocked apps were trying to connect.",
+    image: "/imgs/appwall.svg",
+    imageAlt: "Two blocked apps are routed into a local tunnel where their traffic is dropped, while the browser and maps reach the internet.",
+    tags: ["Kotlin", "Android", "VpnService", "SQLite"],
+  },
+  {
     title: "AI Incident Commander",
     href: "https://github.com/gizawNahom/ai-incident-commander",
     description:
