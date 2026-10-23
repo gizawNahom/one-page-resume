@@ -261,7 +261,7 @@ export function Portfolio() {
             <h1>Nahom Gizaw</h1>
           </a>
           <p className="role">Software Engineer</p>
-          <p className="positioning">Engineer aiming to deliver "better software faster" using Dave Farley's Modern Software Engineering ways (ATDD, DDD, CD).</p>
+          <p className="positioning">Engineer aiming to deliver &ldquo;better software faster&rdquo; using Dave Farley&apos;s Modern Software Engineering ways (ATDD, DDD, CD).</p>
         </div>
         <nav className="section-nav" aria-label="Section navigation">
           {navItems.map(([id, label]) => (
