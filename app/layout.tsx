@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import "./styles.css";
 
 export const metadata: Metadata = {
-  title: "Nahom Derese Gizaw | Senior Backend Engineer",
+  title: "Nahom Derese Gizaw | Software Engineer",
   description:
     "Senior backend engineer building reliable distributed systems, financial platforms, identity integrations, and event-driven workflows.",
   openGraph: {
-    title: "Nahom Derese Gizaw | Senior Backend Engineer",
+    title: "Nahom Derese Gizaw | Software Engineer",
     description:
       "Senior backend engineer building reliable distributed systems, financial platforms, identity integrations, and event-driven workflows.",
     type: "website",

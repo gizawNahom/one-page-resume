@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { JungWordAssociation } from "./jung-word-association";
 import { Arrow } from "./icons";
 import { Spotlight } from "./spotlight";
 
@@ -261,8 +260,8 @@ export function Portfolio() {
           <a className="identity" href="#about" aria-label="Nahom Gizaw, about section">
             <h1>Nahom Gizaw</h1>
           </a>
-          <p className="role">Senior Backend Engineer</p>
-          <p className="positioning">Building dependable distributed systems for high-integrity transactions, digital identity, and event-driven workflows.</p>
+          <p className="role">Software Engineer</p>
+          <p className="positioning">Engineer aiming to deliver "better software faster" using Dave Farley's Modern Software Engineering ways (ATDD, DDD, CD).</p>
         </div>
         <nav className="section-nav" aria-label="Section navigation">
           {navItems.map(([id, label]) => (
@@ -289,9 +288,9 @@ export function Portfolio() {
         <section id="about" className="about-section" aria-labelledby="about-title">
           <SectionHeading id="about-title">About</SectionHeading>
           <div className="prose">
-            <p>Hi there! I&apos;m Nahom, a backend engineer. I care about building systems that are reliable, maintainable, and observable, so you can trust them, change them, and see what&apos;s happening inside them. I&apos;m always looking for ways to deliver better software, faster.</p>
-            <p>Currently, I&apos;m building <a href="https://github.com/gizawNahom/ledgerops" target="_blank" rel="noopener noreferrer">LedgerOps<span className="sr-only"> (opens in a new tab)</span></a>, a ledger that works out of the box for anyone who needs one in their app. It grows out of my work on digital wallets and bank onboarding, where keeping balances correct mattered most. I use AI throughout the development lifecycle, backed by layers of feedback that keep quality high as speed goes up.</p>
-            <p>Outside of engineering, I study depth psychology, especially the work of <JungWordAssociation />. I treat inner work as a practice of noticing patterns and staying curious about complexity in people and in myself.</p>
+            <p>I have a background in building distributed backend systems, but lately, due to AI, I&apos;ve found myself building production-grade frontends too. I love working with people and exchanging ideas. These days, I&apos;m interested in enhancing the whole SDLC using AI while minimizing token usage.</p>
+            <p>Right now, I&apos;m building different open-source projects like <a href="https://github.com/gizawNahom/ledgerops" target="_blank" rel="noopener noreferrer">Ledger Ops<span className="sr-only"> (opens in a new tab)</span></a>, a ready-to-use ledger service that can be self-hosted by teams in different industries. I am also testing different ways of building with agents by building small utility apps and toy projects.</p>
+            <p>I don&apos;t have a lot of hobbies—except I am way into listening to music and <a href="https://en.wikipedia.org/wiki/Depth_psychology" target="_blank" rel="noopener noreferrer">depth psychology<span className="sr-only"> (opens in a new tab)</span></a>. I enjoy doing inner work practices that allow me to understand myself and the world around me better—in fact, I think it&apos;s necessary in order to have a meaningful life.</p>
           </div>
         </section>
 

@@ -8,7 +8,7 @@ for (const viewport of [
   test(`${viewport.name} portfolio verification`, async ({ page }) => {
     await page.setViewportSize({ width: viewport.width, height: viewport.height });
     await page.goto("/");
-    await expect(page.locator("body")).toContainText("Senior Backend Engineer");
+    await expect(page.locator("body")).toContainText("Software Engineer");
     await expect(page.locator("body")).toContainText("Layout inspired by Brittany Chiang's portfolio");
     await page.screenshot({ path: `test-results/portfolio-${viewport.name}.png`, fullPage: true, animations: "disabled" });
   });
