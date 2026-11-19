@@ -100,7 +100,7 @@ const experiences: Experience[] = [
 const projects: Project[] = [
   {
     title: "LedgerOps",
-    href: "https://github.com/gizawNahom/ledgerops",
+    href: "https://gizawnahom.github.io/ledgerops/",
     description:
       "A double-entry ledger service that moves value between accounts correctly, and can prove it did. Built for wallets, marketplaces, and loyalty systems that need balances without building a ledger themselves.",
     image: "/imgs/ledgerops.svg",
